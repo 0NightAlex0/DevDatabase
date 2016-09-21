@@ -1,0 +1,39 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package devdatabase;
+
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+/**
+ *
+ * @author Alex
+ */
+public class Connection {
+// make connection with databaseserver
+    public static ResultSet returnrs(String SQL) { 
+              java.sql.Connection c = null;
+              ResultSet rs = null;
+              String password = "1234";         // Your password
+      try {
+         Class.forName("org.postgresql.Driver");
+         c = DriverManager
+            .getConnection("jdbc:postgresql://localhost:5432/postgres",
+            "postgres", password);
+         Statement stmt = c.createStatement();
+         rs = stmt.executeQuery(SQL);
+         System.out.println("Connection succesful.");
+
+      } catch (Exception e) {
+         e.printStackTrace();
+         System.err.println(e.getClass().getName()+": "+e.getMessage());
+         System.exit(0);
+          System.out.println("Connection failed.");
+      }
+      return rs;
+    }
+}
