@@ -18,11 +18,11 @@ public class Connection {
     public static ResultSet returnrs(String SQL) { 
               java.sql.Connection c = null;
               ResultSet rs = null;
-              String password = "1234";         // Your password
+              String password = "1234";         // Your password as a String instead of 1234
       try {
          Class.forName("org.postgresql.Driver");
          c = DriverManager
-            .getConnection("jdbc:postgresql://localhost:5432/postgres",
+            .getConnection("jdbc:postgresql://localhost:5432/assignment1",  //Your database name instead of assignment1
             "postgres", password);
          Statement stmt = c.createStatement();
          rs = stmt.executeQuery(SQL);
