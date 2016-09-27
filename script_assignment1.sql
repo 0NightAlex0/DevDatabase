@@ -19,12 +19,6 @@ primary key (country,postal_code,house_number),
 unique(country,postal_code,house_number)
 );
 
-Create Table position_work(
-p_name char(20) not null,
-description char(300),
-hours_fee int,
-primary key (p_name)
-);
 
 Create Table degree(
 degreeID int not null,
@@ -53,7 +47,14 @@ building_name char(20) ,
 primary key (p_id),
 foreign key (building_name) references headquarters on delete cascade
 );
-
+Create Table position_work(
+p_name char(20) not null,
+p_id int,
+description char(300),
+hours_fee int,
+primary key (p_name),
+foreign key (p_id) references project(p_id) on delete cascade
+);
 Create Table employee(
 e_bsn int not null,
 e_name char(20),
