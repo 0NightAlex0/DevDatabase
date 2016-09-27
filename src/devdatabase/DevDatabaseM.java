@@ -17,7 +17,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
      */
     public DevDatabaseM() {
         initComponents();
-        Connection.returnrs("Select cid from customer;");
+        Connection.returnrs("Select e_bsn from employee;");
     }
 
     /**
