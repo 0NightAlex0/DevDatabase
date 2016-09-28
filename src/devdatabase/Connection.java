@@ -18,6 +18,7 @@ public class Connection {
     public static ResultSet returnrs(String SQL) { 
               java.sql.Connection c = null;
               ResultSet rs = null;
+              //int rss;
               String password = "password";         // Your password as a String instead of 1234
       try {
          Class.forName("org.postgresql.Driver");
@@ -26,6 +27,7 @@ public class Connection {
             "postgres", password);
          Statement stmt = c.createStatement();
          rs = stmt.executeQuery(SQL);
+         //rss = stmt.executeUpdate(SQL);
          System.out.println("Connection succesful.");
 
       } catch (Exception e) {
