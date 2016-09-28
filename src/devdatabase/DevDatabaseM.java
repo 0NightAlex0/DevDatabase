@@ -12,6 +12,9 @@ import static devdatabase.Connection.returnrs;
  * @author Alex
  */
 public class DevDatabaseM extends javax.swing.JFrame {
+    Integer e_bsn; String e_name; String e_surname; String building_name; // employee
+    String street; String postal_code; String country; String house_nr; String city; // address
+    String course; String school; String level; Integer degreeID; // degree
     /**
      * Creates new form DevDatabaseM
      */
@@ -47,18 +50,18 @@ public class DevDatabaseM extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        bsn = new javax.swing.JTextField();
-        e_name = new javax.swing.JTextField();
-        e_surname = new javax.swing.JTextField();
-        building_name = new javax.swing.JTextField();
-        street = new javax.swing.JTextField();
-        postal_code = new javax.swing.JTextField();
-        County = new javax.swing.JTextField();
-        house_nr = new javax.swing.JTextField();
-        City = new javax.swing.JTextField();
-        Course = new javax.swing.JTextField();
-        School = new javax.swing.JTextField();
-        Level = new javax.swing.JTextField();
+        bsn_tf = new javax.swing.JTextField();
+        e_name_tf = new javax.swing.JTextField();
+        e_surname_tf = new javax.swing.JTextField();
+        building_name_tf = new javax.swing.JTextField();
+        street_tf = new javax.swing.JTextField();
+        postal_code_tf = new javax.swing.JTextField();
+        county_tf = new javax.swing.JTextField();
+        house_nr_tf = new javax.swing.JTextField();
+        city_tf = new javax.swing.JTextField();
+        course_tf = new javax.swing.JTextField();
+        school_tf = new javax.swing.JTextField();
+        level_tf = new javax.swing.JTextField();
         goto_employee = new javax.swing.JButton();
         goto_project = new javax.swing.JButton();
         OverView = new javax.swing.JButton();
@@ -119,33 +122,86 @@ public class DevDatabaseM extends javax.swing.JFrame {
 
         jLabel15.setText("Level:");
 
-        bsn.setText("bsn number");
-        bsn.addActionListener(new java.awt.event.ActionListener() {
+        bsn_tf.setText("bsn number");
+        bsn_tf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bsnActionPerformed(evt);
+                bsn_tfActionPerformed(evt);
             }
         });
 
-        e_name.setText("first name");
-
-        e_surname.setText("last name");
-
-        building_name.setText("building name");
-
-        street.setText("street name");
-
-        postal_code.setText("1111AA");
-
-        County.setText("Netherlands");
-
-        house_nr.setText("1a");
-        house_nr.addActionListener(new java.awt.event.ActionListener() {
+        e_name_tf.setText("first name");
+        e_name_tf.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                house_nrActionPerformed(evt);
+                e_name_tfActionPerformed(evt);
             }
         });
 
-        City.setText("New York");
+        e_surname_tf.setText("last name");
+        e_surname_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                e_surname_tfActionPerformed(evt);
+            }
+        });
+
+        building_name_tf.setText("building name");
+        building_name_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                building_name_tfActionPerformed(evt);
+            }
+        });
+
+        street_tf.setText("street name");
+        street_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                street_tfActionPerformed(evt);
+            }
+        });
+
+        postal_code_tf.setText("1111AA");
+        postal_code_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                postal_code_tfActionPerformed(evt);
+            }
+        });
+
+        county_tf.setText("Netherlands");
+        county_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                county_tfActionPerformed(evt);
+            }
+        });
+
+        house_nr_tf.setText("1a");
+        house_nr_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                house_nr_tfActionPerformed(evt);
+            }
+        });
+
+        city_tf.setText("New York");
+        city_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                city_tfActionPerformed(evt);
+            }
+        });
+
+        course_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                course_tfActionPerformed(evt);
+            }
+        });
+
+        school_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                school_tfActionPerformed(evt);
+            }
+        });
+
+        level_tf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                level_tfActionPerformed(evt);
+            }
+        });
 
         goto_employee.setText("Employee");
 
@@ -179,10 +235,10 @@ public class DevDatabaseM extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(bsn)
-                            .addComponent(e_name)
-                            .addComponent(e_surname)
-                            .addComponent(building_name, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                            .addComponent(bsn_tf)
+                            .addComponent(e_name_tf)
+                            .addComponent(e_surname_tf)
+                            .addComponent(building_name_tf, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,13 +259,13 @@ public class DevDatabaseM extends javax.swing.JFrame {
                             .addComponent(jLabel14))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Level, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(School, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(level_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(school_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addComponent(jLabel13)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Course, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(course_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(71, 71, 71))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -219,17 +275,17 @@ public class DevDatabaseM extends javax.swing.JFrame {
                     .addComponent(jLabel11))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(street, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                    .addComponent(postal_code)
-                    .addComponent(County))
+                    .addComponent(street_tf, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
+                    .addComponent(postal_code_tf)
+                    .addComponent(county_tf))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(City, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(house_nr))
+                    .addComponent(city_tf, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                    .addComponent(house_nr_tf))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,42 +320,42 @@ public class DevDatabaseM extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel13)
-                    .addComponent(bsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Course, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bsn_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(course_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel14)
-                    .addComponent(e_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(School, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(e_name_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(school_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel15)
-                    .addComponent(e_surname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Level, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(e_surname_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(level_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(building_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(building_name_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel8)
-                    .addComponent(street, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(house_nr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(street_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(house_nr_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jLabel10)
-                    .addComponent(postal_code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(City, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(postal_code_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(city_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(County, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(county_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
@@ -333,21 +389,64 @@ public class DevDatabaseM extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifyBActionPerformed
 
     private void AddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBActionPerformed
-        // TODO add your handling code here:
+        System.out.println("add nog niks");
+        // hier moet een add to database query komen waar alle variable van employee
+        // adress en degree worden toegevoegd aan database
         
     }//GEN-LAST:event_AddBActionPerformed
 
-    private void bsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsnActionPerformed
-        // TODO add your bbhandling code here:
-    }//GEN-LAST:event_bsnActionPerformed
+    private void bsn_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsn_tfActionPerformed
+        this.e_bsn = Integer.parseInt(bsn_tf.getText().toString());
+    }//GEN-LAST:event_bsn_tfActionPerformed
 
-    private void house_nrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_house_nrActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_house_nrActionPerformed
+    private void house_nr_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_house_nr_tfActionPerformed
+        this.house_nr = house_nr_tf.getText();
+    }//GEN-LAST:event_house_nr_tfActionPerformed
 
     private void OverViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OverViewActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_OverViewActionPerformed
+
+    private void e_name_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e_name_tfActionPerformed
+        this.e_name = e_name_tf.getText();
+        System.out.println(this.e_name);
+    }//GEN-LAST:event_e_name_tfActionPerformed
+
+    private void e_surname_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_e_surname_tfActionPerformed
+        this.e_surname = e_surname_tf.getText();
+    }//GEN-LAST:event_e_surname_tfActionPerformed
+
+    private void building_name_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_building_name_tfActionPerformed
+        this.building_name = building_name_tf.getText();
+    }//GEN-LAST:event_building_name_tfActionPerformed
+
+    private void street_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_street_tfActionPerformed
+        this.street = street_tf.getText();
+    }//GEN-LAST:event_street_tfActionPerformed
+
+    private void postal_code_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postal_code_tfActionPerformed
+        this.postal_code = postal_code_tf.getText();
+    }//GEN-LAST:event_postal_code_tfActionPerformed
+
+    private void county_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_county_tfActionPerformed
+        this.country = county_tf.getText();
+    }//GEN-LAST:event_county_tfActionPerformed
+
+    private void city_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_city_tfActionPerformed
+        this.city = city_tf.getText();
+    }//GEN-LAST:event_city_tfActionPerformed
+
+    private void course_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_course_tfActionPerformed
+        this.course = course_tf.getText();
+    }//GEN-LAST:event_course_tfActionPerformed
+
+    private void school_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_school_tfActionPerformed
+        this.school = school_tf.getText();
+    }//GEN-LAST:event_school_tfActionPerformed
+
+    private void level_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level_tfActionPerformed
+        this.level = level_tf.getText();
+    }//GEN-LAST:event_level_tfActionPerformed
 
     /**
      * @param args the command line arguments
@@ -386,21 +485,19 @@ public class DevDatabaseM extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddB;
-    private javax.swing.JTextField City;
-    private javax.swing.JTextField County;
-    private javax.swing.JTextField Course;
     private javax.swing.JButton DeleteB;
-    private javax.swing.JTextField Level;
     private javax.swing.JButton ModifyB;
     private javax.swing.JButton OverView;
-    private javax.swing.JTextField School;
-    private javax.swing.JTextField bsn;
-    private javax.swing.JTextField building_name;
-    private javax.swing.JTextField e_name;
-    private javax.swing.JTextField e_surname;
+    private javax.swing.JTextField bsn_tf;
+    private javax.swing.JTextField building_name_tf;
+    private javax.swing.JTextField city_tf;
+    private javax.swing.JTextField county_tf;
+    private javax.swing.JTextField course_tf;
+    private javax.swing.JTextField e_name_tf;
+    private javax.swing.JTextField e_surname_tf;
     private javax.swing.JButton goto_employee;
     private javax.swing.JButton goto_project;
-    private javax.swing.JTextField house_nr;
+    private javax.swing.JTextField house_nr_tf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -419,7 +516,9 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField postal_code;
-    private javax.swing.JTextField street;
+    private javax.swing.JTextField level_tf;
+    private javax.swing.JTextField postal_code_tf;
+    private javax.swing.JTextField school_tf;
+    private javax.swing.JTextField street_tf;
     // End of variables declaration//GEN-END:variables
 }

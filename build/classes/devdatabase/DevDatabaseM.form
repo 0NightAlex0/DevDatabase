@@ -35,10 +35,10 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="bsn" max="32767" attributes="0"/>
-                          <Component id="e_name" max="32767" attributes="0"/>
-                          <Component id="e_surname" max="32767" attributes="0"/>
-                          <Component id="building_name" pref="206" max="32767" attributes="0"/>
+                          <Component id="bsn_tf" max="32767" attributes="0"/>
+                          <Component id="e_name_tf" max="32767" attributes="0"/>
+                          <Component id="e_surname_tf" max="32767" attributes="0"/>
+                          <Component id="building_name_tf" pref="206" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -68,15 +68,15 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Level" min="-2" pref="160" max="-2" attributes="0"/>
-                          <Component id="School" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="level_tf" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="school_tf" min="-2" pref="160" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="Course" min="-2" pref="157" max="-2" attributes="0"/>
+                      <Component id="course_tf" min="-2" pref="157" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="71" pref="71" max="-2" attributes="0"/>
@@ -90,9 +90,9 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="street" pref="164" max="32767" attributes="0"/>
-                  <Component id="postal_code" max="32767" attributes="0"/>
-                  <Component id="County" max="32767" attributes="0"/>
+                  <Component id="street_tf" pref="164" max="32767" attributes="0"/>
+                  <Component id="postal_code_tf" max="32767" attributes="0"/>
+                  <Component id="county_tf" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -101,8 +101,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="City" pref="96" max="32767" attributes="0"/>
-                  <Component id="house_nr" max="32767" attributes="0"/>
+                  <Component id="city_tf" pref="96" max="32767" attributes="0"/>
+                  <Component id="house_nr_tf" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -148,27 +148,27 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="bsn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Course" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bsn_tf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="course_tf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="e_name" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="School" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="e_name_tf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="school_tf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="e_surname" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Level" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="e_surname_tf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="level_tf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="building_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="building_name_tf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -176,20 +176,20 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="street" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="house_nr" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="street_tf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="house_nr_tf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="postal_code" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="City" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="postal_code_tf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="city_tf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="County" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="county_tf" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="12" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -318,62 +318,92 @@
         <Property name="text" type="java.lang.String" value="Level:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="bsn">
+    <Component class="javax.swing.JTextField" name="bsn_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="bsn number"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bsnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bsn_tfActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="e_name">
+    <Component class="javax.swing.JTextField" name="e_name_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="first name"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e_name_tfActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="e_surname">
+    <Component class="javax.swing.JTextField" name="e_surname_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="last name"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e_surname_tfActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="building_name">
+    <Component class="javax.swing.JTextField" name="building_name_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="building name"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="building_name_tfActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="street">
+    <Component class="javax.swing.JTextField" name="street_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="street name"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="street_tfActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="postal_code">
+    <Component class="javax.swing.JTextField" name="postal_code_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="1111AA"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="postal_code_tfActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="County">
+    <Component class="javax.swing.JTextField" name="county_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="Netherlands"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="county_tfActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="house_nr">
+    <Component class="javax.swing.JTextField" name="house_nr_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="1a"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="house_nrActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="house_nr_tfActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="City">
+    <Component class="javax.swing.JTextField" name="city_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="New York"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="city_tfActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="Course">
+    <Component class="javax.swing.JTextField" name="course_tf">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="course_tfActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="School">
+    <Component class="javax.swing.JTextField" name="school_tf">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="school_tfActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="Level">
+    <Component class="javax.swing.JTextField" name="level_tf">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level_tfActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="goto_employee">
       <Properties>
