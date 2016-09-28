@@ -15,6 +15,8 @@ public class DevDatabaseM extends javax.swing.JFrame {
     Integer e_bsn; String e_name; String e_surname; String building_name; // employee
     String street; String postal_code; String country; String house_nr; String city; // address
     String course; String school; String level; Integer degreeID; // degree
+    String p_name; String p_description; Integer hourse_fee; // position
+    Integer pr_id; Integer pr_budget; Integer pr_total_hours; // project
     /**
      * Creates new form DevDatabaseM
      */
