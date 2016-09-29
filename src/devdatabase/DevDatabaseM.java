@@ -6,14 +6,7 @@
 package devdatabase;
 
 
-import static devdatabase.Connection.returnrs;
-import java.awt.List;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -392,12 +385,15 @@ public class DevDatabaseM extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteBActionPerformed
 
     private void ModifyBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyBActionPerformed
-        // TODO add your handling code here:
+        if(!bsn_tf.getText().isEmpty() && Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
+             {Connection.insertrs("update employee set e_name = '"+this.e_name_tf.getText()+"', e_surname = '"+this.e_surname_tf.getText()+"' , building_name = '"+this.building_box.getSelectedItem()+"' where e_bsn = "+bsn_tf.getText()+";");}
+        
+// 
     }//GEN-LAST:event_ModifyBActionPerformed
 
     private void AddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBActionPerformed
-        System.out.println("add nog niks");
-        Connection.insertrs("INSERT INTO employee " + "VALUES ("+bsn_tf.getText()+", '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_box.getSelectedItem()+"');");
+       if(!bsn_tf.getText().isEmpty() && !Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
+            {Connection.insertrs("INSERT INTO employee " + "VALUES ("+bsn_tf.getText()+", '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_box.getSelectedItem()+"');");}
         //Connection.returnrs("Select e_bsn from employee;");
 // hier moet een add to database query komen waar alle variable van employee
         // adress en degree worden toegevoegd aan database
