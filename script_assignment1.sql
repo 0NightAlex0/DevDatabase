@@ -40,7 +40,7 @@ foreign key (country,postal_code,house_number) references address(country,postal
 );
 
 Create Table project(
-p_id int not null,
+p_id char(3) not null,
 p_budget int,
 p_total_hours int,
 building_name char(20) ,
@@ -49,7 +49,7 @@ foreign key (building_name) references headquarters on delete cascade
 );
 Create Table position_work(
 p_name char(20) not null,
-p_id int,
+p_id char(3),
 description char(300),
 hours_fee int,
 primary key (p_name),
