@@ -21,11 +21,11 @@ unique(country,postal_code,house_number)
 
 
 Create Table degree(
-degreeID int not null,
-course char(20),
-school char(20),
-d_level char(20),
-primary key (degreeID)
+course char(20) not null,
+school char(20) not null,
+d_level char(20) not null,
+primary key (course, school, d_level),
+unique (course, school, d_level)
 );
 
 Create Table headquarters(
@@ -56,7 +56,7 @@ primary key (p_name),
 foreign key (p_id) references project(p_id) on delete cascade
 );
 Create Table employee(
-e_bsn int not null,
+e_bsn char(4) not null,
 e_name char(20),
 e_surname char(20),
 building_name char(20) not null,
@@ -65,7 +65,7 @@ foreign key (building_name) references headquarters on delete cascade
 );
 
 Create Table position_employee(
-bsn int,
+bsn char(4),
 p_name char(20),
 hours int,
 primary key (bsn,p_name),
@@ -74,15 +74,17 @@ foreign key (p_name) references position_work on delete cascade
 );
 
 Create Table degree_employee(
-bsn int,
-degreeID int,
-primary key (bsn,degreeID) ,
+bsn char(4),
+course char(20) not null,
+school char(20) not null,
+d_level char(20) not null,
+primary key (bsn, course, school, d_level),
 foreign key (bsn) references employee on delete cascade,
-foreign key (degreeID) references degree
+foreign key (course, school, d_level) references degree(course, school, d_level)
 );
 
 Create Table address_employee(
-bsn int,
+bsn char(4),
 country char(20),
 postal_code char(10),
 house_number char(10),
@@ -96,4 +98,7 @@ VALUES ('Nederland','3201TT','12','Acity','Astraatweg'),('Nederland','4211TT','1
 INSERT INTO headquarters(building_name,country,postal_code,house_number,building_rent,number_rooms)
 VALUES ('H-Gebouw','Nederland','3201TT','12',2500,30),('D-Gebouw','Nederland','4211TT','12',5500,110);
 INSERT INTO employee(e_bsn,e_name,e_surname,building_name)
-VALUES (1112,'Ruben','Everwijn','H-Gebouw'),(1113,'Alex','Ng','H-Gebouw'),(1122,'Iemand','Ergens','D-Gebouw');
+VALUES ('1112','Ruben','Everwijn','H-Gebouw'),('1113','Alex','Ng','H-Gebouw'),('1122','Iemand','Ergens','D-Gebouw');
+INSERT INTO degree(course, school , d_level)
+VALUES ('Economics','Erasmus','Bacherlor');
+select * from employee;
