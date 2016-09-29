@@ -381,7 +381,9 @@ public class DevDatabaseM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DeleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBActionPerformed
-        // TODO add your handling code here:
+         if(!bsn_tf.getText().isEmpty() && Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
+             {Connection.insertrs("DELETE FROM employee WHERE e_bsn = '"+this.bsn_tf.getText()+"';");}
+       
     }//GEN-LAST:event_DeleteBActionPerformed
 
     private void ModifyBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyBActionPerformed
