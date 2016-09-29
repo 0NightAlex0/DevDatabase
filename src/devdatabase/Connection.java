@@ -8,12 +8,15 @@ package devdatabase;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+
 
 /**
  *
  * @author Alex
  */
 public class Connection {
+    
 // make connection with databaseserver
     public static void insertrs(String SQL) { 
               java.sql.Connection c = null;
@@ -35,9 +38,10 @@ public class Connection {
           System.out.println("Connection failed.");
       }}
       //
-      public static ResultSet returnrs(String SQL) { 
+      public static ArrayList returnrs(String SQL) { 
               java.sql.Connection c = null;
               ResultSet rs = null;
+              ArrayList<String> listrs = new ArrayList<String>();
               String password = "password";         // Your password as a String instead of 1234
 
       try {
@@ -48,6 +52,7 @@ public class Connection {
          Statement stmt = c.createStatement();
          rs = stmt.executeQuery(SQL);
          System.out.println("Connection succesful.");
+         while(rs.next()){listrs.add(rs.getString(1));}
 
       } catch (Exception e) {
          e.printStackTrace();
@@ -55,6 +60,8 @@ public class Connection {
          System.exit(0);
           System.out.println("Connection failed.");
       }
-      return rs;
+      return listrs;
+    
+            
     }
 }

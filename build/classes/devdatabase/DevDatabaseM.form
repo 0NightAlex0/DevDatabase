@@ -66,10 +66,10 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="bsn_tf" max="32767" attributes="0"/>
+                                  <Component id="bsn_tf" pref="206" max="32767" attributes="0"/>
                                   <Component id="e_name_tf" max="32767" attributes="0"/>
                                   <Component id="e_surname_tf" max="32767" attributes="0"/>
-                                  <Component id="building_name_tf" pref="206" max="32767" attributes="0"/>
+                                  <Component id="building_box" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -98,7 +98,7 @@
                               <Component id="course_tf" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="71" pref="71" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -159,7 +159,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="building_name_tf" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="building_box" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -333,14 +333,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="e_surname_tfActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="building_name_tf">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="building name"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="building_name_tfActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="street_tf">
       <Properties>
         <Property name="text" type="java.lang.String" value="street name"/>
@@ -428,6 +420,18 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="check what projects cannot pay there rent (rent higher than 10% budget)"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="building_box">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Select location"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="building_boxActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
