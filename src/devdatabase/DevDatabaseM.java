@@ -23,7 +23,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
      */
     public DevDatabaseM() {
         initComponents();
-        //Connection.returnrs("Select e_bsn from employee;");
+        
     }
 
     /**
@@ -393,8 +393,9 @@ public class DevDatabaseM extends javax.swing.JFrame {
 
     private void AddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBActionPerformed
         System.out.println("add nog niks");
-        Connection.returnrs("INSERT INTO employee " + "VALUES ("+bsn_tf.getText()+", '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_name_tf.getText()+"');");
-        // hier moet een add to database query komen waar alle variable van employee
+        Connection.insertrs("INSERT INTO employee " + "VALUES ("+bsn_tf.getText()+", '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_name_tf.getText()+"');");
+        //Connection.returnrs("Select e_bsn from employee;");
+// hier moet een add to database query komen waar alle variable van employee
         // adress en degree worden toegevoegd aan database
         
     }//GEN-LAST:event_AddBActionPerformed
