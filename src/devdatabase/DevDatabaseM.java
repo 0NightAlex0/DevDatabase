@@ -395,7 +395,10 @@ public class DevDatabaseM extends javax.swing.JFrame {
 
     private void AddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBActionPerformed
        if(!bsn_tf.getText().isEmpty() && !Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
-            {Connection.insertrs("INSERT INTO employee " + "VALUES ("+bsn_tf.getText()+", '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_box.getSelectedItem()+"');");}
+            {Connection.insertrs("INSERT INTO employee " + "VALUES ("+bsn_tf.getText()+", '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_box.getSelectedItem()+"');"
+                     +"INSERT INTO address VALUES ('"+county_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');" 
+                     +"INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');"
+                     +"INSERT INTO address_employee VALUES('"+bsn_tf.getText()+"','"+county_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"');");}
         //Connection.returnrs("Select e_bsn from employee;");
 // hier moet een add to database query komen waar alle variable van employee
         // adress en degree worden toegevoegd aan database
