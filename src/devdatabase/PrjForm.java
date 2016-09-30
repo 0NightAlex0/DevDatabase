@@ -47,6 +47,11 @@ public class PrjForm extends javax.swing.JFrame {
         modifyB.setText("Modify");
 
         deleteB.setText("Delete");
+        deleteB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBActionPerformed(evt);
+            }
+        });
 
         prj_id.setText("id");
         prj_id.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +130,12 @@ public class PrjForm extends javax.swing.JFrame {
     private void prj_hoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prj_hoursActionPerformed
         projectHours = Integer.parseInt(prj_hours.getText());
     }//GEN-LAST:event_prj_hoursActionPerformed
+
+    private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
+        if(!prj_id.getText().isEmpty() && !Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
+            Connection.insertrs("DELETE FROM project WHERE p_id = '"+ prj_id.getText()+"';");
+        }
+    }//GEN-LAST:event_deleteBActionPerformed
 
     /**
      * @param args the command line arguments
