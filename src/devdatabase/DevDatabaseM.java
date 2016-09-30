@@ -210,6 +210,11 @@ public class DevDatabaseM extends javax.swing.JFrame {
         goto_employee.setText("Employee");
 
         goto_project.setText("Project");
+        goto_project.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goto_projectActionPerformed(evt);
+            }
+        });
 
         OverView.setText("View Tabels");
         OverView.addActionListener(new java.awt.event.ActionListener() {
@@ -520,6 +525,11 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private void building_boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_building_boxActionPerformed
         
     }//GEN-LAST:event_building_boxActionPerformed
+
+    private void goto_projectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goto_projectActionPerformed
+        this.setVisible(false);
+        new PrjForm().setVisible(true);
+    }//GEN-LAST:event_goto_projectActionPerformed
     private void work_positionActionPerformed(java.awt.event.ActionEvent evt) {                                             
         
     }        
