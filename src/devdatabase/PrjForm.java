@@ -17,6 +17,10 @@ public class PrjForm extends javax.swing.JFrame {
      */
     public PrjForm() {
         initComponents();
+        for(int i = 0 ; i < Connection.returnrs("SELECT building_name FROM headquarters").size() ; i++)
+        {   
+            HQName.addItem((String) Connection.returnrs("SELECT building_name FROM headquarters").get(i));
+        }
     }
 
     /**
@@ -34,6 +38,7 @@ public class PrjForm extends javax.swing.JFrame {
         prj_id = new javax.swing.JTextField();
         prj_budget = new javax.swing.JTextField();
         prj_hours = new javax.swing.JTextField();
+        HQName = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +50,11 @@ public class PrjForm extends javax.swing.JFrame {
         });
 
         modifyB.setText("Modify");
+        modifyB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifyBActionPerformed(evt);
+            }
+        });
 
         deleteB.setText("Delete");
         deleteB.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +84,13 @@ public class PrjForm extends javax.swing.JFrame {
             }
         });
 
+        HQName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select headquarters" }));
+        HQName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HQNameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,6 +98,7 @@ public class PrjForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(HQName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addB)
                         .addGap(35, 35, 35)
@@ -102,7 +120,9 @@ public class PrjForm extends javax.swing.JFrame {
                 .addComponent(prj_budget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(prj_hours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(HQName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addB)
                     .addComponent(modifyB)
@@ -115,7 +135,7 @@ public class PrjForm extends javax.swing.JFrame {
 
     private void addBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBActionPerformed
         if(!prj_id.getText().isEmpty() && !Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
-            Connection.insertrs("INSERT INTO project VALUES('"+ prj_id.getText() +"'," + projectBudget + ","+ projectHours +");");
+            Connection.insertrs("INSERT INTO project VALUES('"+ prj_id.getText() +"'," + projectBudget + ","+ projectHours + ");");
         }
     }//GEN-LAST:event_addBActionPerformed
 
@@ -133,9 +153,20 @@ public class PrjForm extends javax.swing.JFrame {
 
     private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
         if(!prj_id.getText().isEmpty() && !Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
-            Connection.insertrs("DELETE FROM project WHERE p_id = '"+ prj_id.getText()+"';");
+            Connection.insertrs("DELETE FROM project WHERE p_id = '"+ prj_id.getText()+"';"); 
+    // also needs to remove the location
         }
     }//GEN-LAST:event_deleteBActionPerformed
+
+    private void modifyBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyBActionPerformed
+        if(!prj_id.getText().isEmpty() && !Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
+            //Connection.insertrs("update project set 
+        }
+    }//GEN-LAST:event_modifyBActionPerformed
+
+    private void HQNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HQNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HQNameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +204,7 @@ public class PrjForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> HQName;
     private javax.swing.JButton addB;
     private javax.swing.JButton deleteB;
     private javax.swing.JButton modifyB;
