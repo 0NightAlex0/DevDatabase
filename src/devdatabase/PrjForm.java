@@ -10,7 +10,8 @@ package devdatabase;
  * @author Alex
  */
 public class PrjForm extends javax.swing.JFrame {
-
+    int projectBudget; int projectHours; 
+    
     /**
      * Creates new form PrjForm
      */
@@ -27,31 +28,46 @@ public class PrjForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        addB = new javax.swing.JButton();
+        modifyB = new javax.swing.JButton();
+        deleteB = new javax.swing.JButton();
+        prj_id = new javax.swing.JTextField();
+        prj_budget = new javax.swing.JTextField();
+        prj_hours = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Add");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addB.setText("Add");
+        addB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addBActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Modify");
+        modifyB.setText("Modify");
 
-        jButton3.setText("Delete");
+        deleteB.setText("Delete");
 
-        jTextField1.setText("id");
+        prj_id.setText("id");
+        prj_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prj_idActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setText("budget");
+        prj_budget.setText("budget");
+        prj_budget.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prj_budgetActionPerformed(evt);
+            }
+        });
 
-        jTextField3.setText("hours");
+        prj_hours.setText("hours");
+        prj_hours.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                prj_hoursActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -61,40 +77,54 @@ public class PrjForm extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(addB)
                         .addGap(35, 35, 35)
-                        .addComponent(jButton2)
+                        .addComponent(modifyB)
                         .addGap(39, 39, 39)
-                        .addComponent(jButton3))
+                        .addComponent(deleteB))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)))
+                        .addComponent(prj_hours, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(prj_id, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(prj_budget, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prj_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prj_budget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(prj_hours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(addB)
+                    .addComponent(modifyB)
+                    .addComponent(deleteB))
                 .addGap(70, 70, 70))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void addBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBActionPerformed
+        if(!prj_id.getText().isEmpty() && !Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
+            Connection.insertrs("INSERT INTO project VALUES('"+ prj_id.getText() +"'," + projectBudget + ","+ projectHours +");");
+        }
+    }//GEN-LAST:event_addBActionPerformed
+
+    private void prj_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prj_idActionPerformed
+        
+    }//GEN-LAST:event_prj_idActionPerformed
+
+    private void prj_budgetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prj_budgetActionPerformed
+        projectBudget = Integer.parseInt(prj_budget.getText());
+    }//GEN-LAST:event_prj_budgetActionPerformed
+
+    private void prj_hoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prj_hoursActionPerformed
+        projectHours = Integer.parseInt(prj_hours.getText());
+    }//GEN-LAST:event_prj_hoursActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,11 +162,11 @@ public class PrjForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton addB;
+    private javax.swing.JButton deleteB;
+    private javax.swing.JButton modifyB;
+    private javax.swing.JTextField prj_budget;
+    private javax.swing.JTextField prj_hours;
+    private javax.swing.JTextField prj_id;
     // End of variables declaration//GEN-END:variables
 }
