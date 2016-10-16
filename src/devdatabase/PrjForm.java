@@ -5,8 +5,10 @@
  */
 package devdatabase;
 
-import java.util.ArrayList;
+import java.awt.Label;
+import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.ListSelectionModel;
 
 /**
  *
@@ -14,7 +16,8 @@ import javax.swing.JList;
  */
 public class PrjForm extends javax.swing.JFrame {
     int projectBudget; int projectHours; 
-    ArrayList<String> projecten_budget= new ArrayList<>();
+    DefaultListModel listModel = new DefaultListModel();
+    JList project_list;
     /**
      * Creates new form PrjForm
      */
@@ -25,11 +28,17 @@ public class PrjForm extends javax.swing.JFrame {
             HQName.addItem((String) Connection.returnrs("SELECT building_name FROM headquarters").get(i));
         }
         
-//        for(int i = 0 ; i < Connection.returnrs("SELECT p_id FROM project p, headquarters h WHERE p.building_name=h.building_name AND p.p_budget*0.10 < h.building_rent").size() ; i++)
-//        {   
-//            projecten_budget.add((String) Connection.returnrs("SELECT p_id FROM project p, headquarters h WHERE p.building_name=h.building_name AND p.p_budget*0.10 < h.building_rent").get(i));
-//        }
-//        list_projects = new JList(Connection.returnrs("SELECT building_name FROM headquarters").toArray());
+        for(int i = 0 ; i < Connection.returnrs("SELECT p_id FROM project p, headquarters h WHERE p.building_name=h.building_name AND p.p_budget*0.10 < h.building_rent").size() ; i++)
+        {   
+            //project_budget.addColumn(null);
+            project_budget.addItem(Connection.returnrs("SELECT p_id FROM project p, headquarters h WHERE p.building_name=h.building_name AND p.p_budget*0.10 < h.building_rent").get(i));
+        }
+// 
+
+
+
+
+
     }
 
     /**
@@ -50,8 +59,11 @@ public class PrjForm extends javax.swing.JFrame {
         HQName = new javax.swing.JComboBox<String>();
         goto_employee = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        list_projects = new javax.swing.JList();
+        project_budget = new javax.swing.JComboBox();
+        building_rent = new javax.swing.JTextField();
+        project_budget_tf = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,7 +125,24 @@ public class PrjForm extends javax.swing.JFrame {
 
         jLabel1.setText("Projects that can't pay the rent");
 
-        jScrollPane1.setViewportView(list_projects);
+        project_budget.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                project_budgetActionPerformed(evt);
+            }
+        });
+
+        building_rent.setText("Rent");
+        building_rent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                building_rentActionPerformed(evt);
+            }
+        });
+
+        project_budget_tf.setText("Project Budget");
+
+        jLabel2.setText("Building Rent");
+
+        jLabel3.setText("Project Budget");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,46 +153,62 @@ public class PrjForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(addB)
-                        .addGap(35, 35, 35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(modifyB))
                     .addComponent(HQName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(prj_hours, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(prj_id, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(prj_budget, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(83, 83, 83))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(goto_employee)
+                            .addComponent(jLabel1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(deleteB))
-                        .addContainerGap(63, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(goto_employee)
-                .addContainerGap())
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel2)
+                                        .addGap(19, 19, 19))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(project_budget, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(building_rent, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(project_budget_tf, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addComponent(deleteB))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(prj_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(prj_budget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(prj_hours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(HQName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(project_budget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(building_rent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(project_budget_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(51, 51, 51)
+                .addComponent(prj_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(prj_budget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(prj_hours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(HQName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addB)
                     .addComponent(modifyB)
@@ -178,7 +223,8 @@ public class PrjForm extends javax.swing.JFrame {
 
     private void addBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBActionPerformed
         if(!prj_id.getText().isEmpty() && !Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
-            Connection.insertrs("INSERT INTO project VALUES('"+ prj_id.getText() +"'," + projectBudget + ","+ projectHours + ");");
+            
+            Connection.insertrs("INSERT INTO project VALUES('"+ prj_id.getText() +"'," + prj_budget.getText() + ","+ prj_hours.getText() + ",'"+ HQName.getSelectedItem()+"');");
         }
     }//GEN-LAST:event_addBActionPerformed
 
@@ -214,7 +260,17 @@ public class PrjForm extends javax.swing.JFrame {
     private void goto_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goto_employeeActionPerformed
             this.setVisible(false);
             new DevDatabaseM().setVisible(true);
+            
     }//GEN-LAST:event_goto_employeeActionPerformed
+
+    private void building_rentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_building_rentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_building_rentActionPerformed
+
+    private void project_budgetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_project_budgetActionPerformed
+        project_budget_tf.setText((String) Connection.returnrs("SELECT p_budget FROM project p WHERE p_id='"+project_budget.getSelectedItem()+"'").get(0));
+        building_rent.setText((String) Connection.returnrs("SELECT building_rent FROM headquarters h, project p WHERE p.building_name=h.building_name AND p_id='"+project_budget.getSelectedItem()+"'").get(0));
+    }//GEN-LAST:event_project_budgetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,14 +310,17 @@ public class PrjForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> HQName;
     private javax.swing.JButton addB;
+    private javax.swing.JTextField building_rent;
     private javax.swing.JButton deleteB;
     private javax.swing.JButton goto_employee;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JList list_projects;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton modifyB;
     private javax.swing.JTextField prj_budget;
     private javax.swing.JTextField prj_hours;
     private javax.swing.JTextField prj_id;
+    private javax.swing.JComboBox project_budget;
+    private javax.swing.JTextField project_budget_tf;
     // End of variables declaration//GEN-END:variables
 }
