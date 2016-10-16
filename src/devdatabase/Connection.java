@@ -29,6 +29,7 @@ public class Connection {
             "postgres", password);
          Statement stmt = c.createStatement();
          rss = stmt.executeUpdate(SQL);
+         c.close();
          System.out.println("Connection succesful.");
 
       } catch (Exception e) {
@@ -51,9 +52,10 @@ public class Connection {
             "postgres", password);
          Statement stmt = c.createStatement();
          rs = stmt.executeQuery(SQL);
+         c.close();
          System.out.println("Connection succesful.");
          while(rs.next()){listrs.add(rs.getString(1));}
-
+        
       } catch (Exception e) {
          e.printStackTrace();
          System.err.println(e.getClass().getName()+": "+e.getMessage());

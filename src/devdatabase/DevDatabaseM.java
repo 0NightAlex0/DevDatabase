@@ -28,6 +28,15 @@ public class DevDatabaseM extends javax.swing.JFrame {
         {
             building_box.addItem(Connection.returnrs("SELECT building_name FROM headquarters").get(i));
         }
+        for(int i = 0 ; i < Connection.returnrs("SELECT building_name FROM headquarters").size() ; i++)
+        {
+            assigntoproject.addItem(Connection.returnrs("SELECT p_id FROM project").get(i));
+        }
+        
+        for(int i = 0 ; i < Connection.returnrs("SELECT pos_name FROM position_work").size() ; i++)
+        {
+            work_position.addItem(Connection.returnrs("SELECT pos_name FROM position_work").get(i));
+        }
     }
 
     /**
@@ -76,9 +85,11 @@ public class DevDatabaseM extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         building_box = new javax.swing.JComboBox();
         jLabel19 = new javax.swing.JLabel();
-        work_position = new javax.swing.JTextField();
         work_hours = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        assigntoproject = new javax.swing.JComboBox();
+        work_position = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -238,13 +249,6 @@ public class DevDatabaseM extends javax.swing.JFrame {
 
         jLabel19.setText("Work position:");
 
-        work_position.setText("position");
-        work_position.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                work_positionActionPerformed(evt);
-            }
-        });
-
         work_hours.setText("hours");
         work_hours.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -253,6 +257,12 @@ public class DevDatabaseM extends javax.swing.JFrame {
         });
 
         jLabel20.setText("Work hours:");
+
+        jLabel21.setText("Assign to project:");
+
+        assigntoproject.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Project" }));
+
+        work_position.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Position" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -274,7 +284,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -293,7 +303,10 @@ public class DevDatabaseM extends javax.swing.JFrame {
                                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                    .addComponent(level_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(level_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jLabel21)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -307,14 +320,19 @@ public class DevDatabaseM extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(house_nr_tf))))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
+                                        .addGap(8, 8, 8)
                                         .addComponent(street_tf))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(work_hours, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(work_position, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(work_hours, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGap(2, 2, 2)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(assigntoproject, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(work_position, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(ModifyB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(DeleteB)
@@ -418,7 +436,10 @@ public class DevDatabaseM extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
-                            .addComponent(level_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(level_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel21)
+                                .addComponent(assigntoproject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -461,13 +482,21 @@ public class DevDatabaseM extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifyBActionPerformed
 
     private void AddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBActionPerformed
+        if(!Connection.returnrs("SELECT country FROM address").contains(country_tf.getText())
+               && !Connection.returnrs("SELECT postal_code FROM address").contains(postal_code_tf.getText())
+               && !Connection.returnrs("SELECT house_number FROM address").contains(house_nr_tf.getText())){           
+             Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");}       
+       if(!Connection.returnrs("SELECT course FROM degree").contains(course_tf.getText())
+               && !Connection.returnrs("SELECT school FROM degree").contains(school_tf.getText())
+               && !Connection.returnrs("SELECT d_level FROM degree").contains(level_tf.getText())){
+             Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");}
        if(!bsn_tf.getText().isEmpty() && !Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
-            {Connection.insertrs("INSERT INTO employee " + "VALUES ("+bsn_tf.getText()+", '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_box.getSelectedItem()+"');"
-                     +"INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');" 
-                     +"INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');"
+            {Connection.insertrs("INSERT INTO employee VALUES ('"+bsn_tf.getText()+"', '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_box.getSelectedItem()+"');"
                      +"INSERT INTO address_employee VALUES('"+bsn_tf.getText()+"','"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"');"
-                     +"INSERT INTO degree_employee VALUES('" + bsn_tf.getText()+ "','" + course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");
-            }
+                     +"INSERT INTO degree_employee VALUES('" + bsn_tf.getText()+ "','" + course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');"                                        
+                     +"INSERT INTO position_employee VALUES('"+bsn_tf.getText()+"','"+work_position.getSelectedItem()+"','"+work_hours.getText()+"');"
+                     +"INSERT INTO position_project VALUES('"+work_position.getSelectedItem()+"','"+assigntoproject.getSelectedItem()+"')");}    
+            
         //Connection.returnrs("Select e_bsn from employee;");
 // hier moet een add to database query komen waar alle variable van employee
         // adress en degree worden toegevoegd aan database
@@ -579,6 +608,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private javax.swing.JButton DeleteB;
     private javax.swing.JButton ModifyB;
     private javax.swing.JButton OverView;
+    private javax.swing.JComboBox assigntoproject;
     private javax.swing.JTextField bsn_tf;
     private javax.swing.JComboBox building_box;
     private javax.swing.JTextField city_tf;
@@ -602,6 +632,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -614,6 +645,6 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private javax.swing.JTextField school_tf;
     private javax.swing.JTextField street_tf;
     private javax.swing.JTextField work_hours;
-    private javax.swing.JTextField work_position;
+    private javax.swing.JComboBox work_position;
     // End of variables declaration//GEN-END:variables
 }
