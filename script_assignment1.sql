@@ -1,4 +1,4 @@
-drop table if exists position_employee;
+﻿drop table if exists position_employee;
 drop table if exists degree_employee;
 drop table if exists address_employee;
 drop table if exists address cascade;
@@ -104,4 +104,8 @@ VALUES ('H-Gebouw','Nederland','3201TT','12',2500,30),('D-Gebouw','Nederland','4
 INSERT INTO employee(e_bsn,e_name,e_surname,building_name)
 VALUES ('1112','Ruben','Everwijn','H-Gebouw'),('1113','Alex','Ng','H-Gebouw'),('1122','Iemand','Ergens','D-Gebouw');
 INSERT INTO degree(course, school , d_level)
-VALUES ('Economics','Erasmus','Bacherlor');
+VALUES ('Economics','Erasmus','Bacherlor'),('Informatica','HRO','Bachelor');
+INSERT INTO degree_employee(e_bsn, course, school, d_level)
+VALUES ('1112','Economics','Erasmus','Bacherlor'),('1113','Informatica','HRO','Bachelor'),('1122','Economics','Erasmus','Bacherlor');
+INSERT INTO address_employee(e_bsn, country, postal_code,house_number)
+VALUES ('1112','Nederland','3201TT','12'),('1113','Nederland','4211TT','12'),('1122','Nederland','3201TT','7b');

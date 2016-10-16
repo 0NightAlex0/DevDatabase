@@ -627,9 +627,28 @@ public class DevDatabaseM extends javax.swing.JFrame {
         if(!"select bsn".equals(existing_bsn.getSelectedItem().toString())){
             String bsn = existing_bsn.getSelectedItem().toString();
             bsn_tf.setText(bsn);
-            ArrayList<String> l = Connection.returnrs("select e_name, e_surname from employee where e_bsn = '" + bsn +"';");
-            e_name_tf.setText(l.get(0));
-            //e_surname_tf.setText(l.get(1));
+            ArrayList<String> l = Connection.returnrs("select e_name from employee where e_bsn = '" + bsn +"';");
+            ArrayList<String> l2 = Connection.returnrs("select e_surname from employee where e_bsn = '" + bsn +"';");
+            ArrayList<String> l3 = Connection.returnrs("select building_name from employee where e_bsn = '" + bsn +"';");
+            ArrayList<String> l4 = Connection.returnrs("select de.course from employee e, degree_employee de where e.e_bsn = de.e_bsn and e.e_bsn = '" + bsn +"';");
+            ArrayList<String> l5 = Connection.returnrs("select de.school from employee e, degree_employee de where e.e_bsn = de.e_bsn and e.e_bsn = '" + bsn +"';");
+            ArrayList<String> l6 = Connection.returnrs("select de.d_level from employee e, degree_employee de where e.e_bsn = de.e_bsn and e.e_bsn = '" + bsn +"';");
+            ArrayList<String> l7 = Connection.returnrs("select a.country from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
+            ArrayList<String> l8 = Connection.returnrs("select a.postal_code from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
+            ArrayList<String> l9 = Connection.returnrs("select a.house_number from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
+            ArrayList<String> l10 = Connection.returnrs("select a.city from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
+            ArrayList<String> l11 = Connection.returnrs("select a.street from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
+            e_name_tf.setText(l.get(0)); 
+            e_surname_tf.setText(l2.get(0));
+            building_box.setSelectedItem(l3.get(0));
+            course_tf.setText(l4.get(0));
+            school_tf.setText(l5.get(0));
+            level_tf.setText(l6.get(0));
+            country_tf.setText(l7.get(0));
+            postal_code_tf.setText(l8.get(0));
+            house_nr_tf.setText(l9.get(0));
+            city_tf.setText(l10.get(0));
+            street_tf.setText(l11.get(0));
     }
     }//GEN-LAST:event_ok_buttonActionPerformed
     private void work_positionActionPerformed(java.awt.event.ActionEvent evt) {                                             
