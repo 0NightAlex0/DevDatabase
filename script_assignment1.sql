@@ -93,9 +93,11 @@ foreign key (country,postal_code,house_number) references address(country,postal
 create table position_project(
 e_bsn varchar,
 p_id varchar,
-primary key(e_bsn, p_id),
+pos_name varchar,
+primary key(e_bsn, p_id, pos_name),
 foreign key (e_bsn) references employee on delete cascade,
-foreign key (p_id )references project on delete cascade
+foreign key (p_id )references project on delete cascade,
+foreign key(pos_name) references position_work on delete cascade
 );
 INSERT INTO address(country,postal_code,house_number,city,street)
 VALUES ('Nederland','3201TT','12','Acity','Astraatweg'),('Nederland','4211TT','12','Bcity','Bstraatweg'),('Nederland','3201TT','7b','Acity','Astraatweg'),('Nederland','3301TT','22','Kcity','Kstraatweg');
@@ -109,3 +111,9 @@ INSERT INTO degree_employee(e_bsn, course, school, d_level)
 VALUES ('1112','Economics','Erasmus','Bacherlor'),('1113','Informatica','HRO','Bachelor'),('1122','Economics','Erasmus','Bacherlor');
 INSERT INTO address_employee(e_bsn, country, postal_code,house_number)
 VALUES ('1112','Nederland','3201TT','12'),('1113','Nederland','4211TT','12'),('1122','Nederland','3201TT','7b');
+INSERT INTO project (p_id,p_budget,p_total_hours,building_name)
+VALUES ('1',1000,100,'H-Gebouw'),('2',1500,150,'D-Gebouw'),('3',2000,500,'D-Gebouw'),('4',1850,300,'X-Gebouw');
+INSERT INTO position_work (pos_name,pos_description, hours_fee)
+VALUES ('Manager','Manage',100),('Developer','Develop',80),('Tester','Test',65);
+--INSERT INTO position_project (e_bsn, p_id, pos_name)
+--VALUES ('1112', '', 'Manager'),('1113', '2','Developer'),('1122','3','Tester');
