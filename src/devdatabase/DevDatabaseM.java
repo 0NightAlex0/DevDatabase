@@ -28,7 +28,9 @@ public class DevDatabaseM extends javax.swing.JFrame {
         {
             building_box.addItem(Connection.returnrs("SELECT building_name FROM headquarters").get(i));
         }
-        for(int i = 0 ; i < Connection.returnrs("SELECT building_name FROM project").size() ; i++)
+
+        for(int i = 0 ; i < Connection.returnrs("SELECT p_id FROM project").size() ; i++)
+
         {
             assigntoproject.addItem(Connection.returnrs("SELECT p_id FROM project").get(i));
         }
