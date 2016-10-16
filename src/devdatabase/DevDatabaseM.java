@@ -5,6 +5,8 @@
  */
 package devdatabase;
 
+import java.util.ArrayList;
+
 
 
 
@@ -42,7 +44,9 @@ public class DevDatabaseM extends javax.swing.JFrame {
         for(int i = 0 ; i < Connection.returnrs("SELECT e_bsn FROM employee").size() ; i++)
         {
             assign_employee_project.addItem(Connection.returnrs("SELECT e_bsn FROM employee").get(i));
+            existing_bsn.addItem((String) Connection.returnrs("SELECT e_bsn FROM employee").get(i));
         }
+        
     }
 
     /**
@@ -98,6 +102,8 @@ public class DevDatabaseM extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         assign_employee_project = new javax.swing.JComboBox();
         assign_button = new javax.swing.JButton();
+        existing_bsn = new javax.swing.JComboBox<>();
+        ok_button = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -281,6 +287,20 @@ public class DevDatabaseM extends javax.swing.JFrame {
             }
         });
 
+        existing_bsn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select bsn" }));
+        existing_bsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                existing_bsnActionPerformed(evt);
+            }
+        });
+
+        ok_button.setText("ok");
+        ok_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ok_buttonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -288,7 +308,10 @@ public class DevDatabaseM extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(existing_bsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ok_button))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -325,29 +348,24 @@ public class DevDatabaseM extends javax.swing.JFrame {
                                             .addComponent(level_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(2, 2, 2)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(city_tf)
+                                            .addComponent(country_tf)
                                             .addGroup(layout.createSequentialGroup()
+                                                .addComponent(postal_code_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(city_tf)
-                                                    .addComponent(country_tf)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(postal_code_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(jLabel8)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(house_nr_tf))))
+                                                .addComponent(jLabel8)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(house_nr_tf))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(8, 8, 8)
                                                 .addComponent(street_tf))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(work_hours, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(work_hours, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                         .addGap(2, 2, 2)
                                                         .addComponent(work_position, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addComponent(ModifyB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                     .addComponent(DeleteB)
@@ -388,14 +406,8 @@ public class DevDatabaseM extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(jLabel5)
-                        .addGap(11, 11, 11))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel7)))
+                .addContainerGap()
+                .addComponent(jLabel7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -461,7 +473,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
                             .addComponent(level_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel17)
@@ -489,6 +501,15 @@ public class DevDatabaseM extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(OverView)
                                 .addGap(49, 49, 49))))))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(jLabel5))
+                    .addComponent(existing_bsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ok_button)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -597,6 +618,20 @@ public class DevDatabaseM extends javax.swing.JFrame {
                Connection.insertrs("INSERT INTO position_project VALUES('"+assign_employee_project.getSelectedItem()+"','"+assigntoproject.getSelectedItem()+"')");
                        }    
     }//GEN-LAST:event_assign_buttonActionPerformed
+
+    private void existing_bsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existing_bsnActionPerformed
+        
+    }//GEN-LAST:event_existing_bsnActionPerformed
+
+    private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
+        if(!"select bsn".equals(existing_bsn.getSelectedItem().toString())){
+            String bsn = existing_bsn.getSelectedItem().toString();
+            bsn_tf.setText(bsn);
+            ArrayList<String> l = Connection.returnrs("select e_name, e_surname from employee where e_bsn = '" + bsn +"';");
+            e_name_tf.setText(l.get(0));
+            //e_surname_tf.setText(l.get(1));
+    }
+    }//GEN-LAST:event_ok_buttonActionPerformed
     private void work_positionActionPerformed(java.awt.event.ActionEvent evt) {                                             
         
     }        
@@ -656,6 +691,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private javax.swing.JTextField course_tf;
     private javax.swing.JTextField e_name_tf;
     private javax.swing.JTextField e_surname_tf;
+    private javax.swing.JComboBox<String> existing_bsn;
     private javax.swing.JButton goto_project;
     private javax.swing.JTextField house_nr_tf;
     private javax.swing.JLabel jLabel1;
@@ -681,6 +717,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField level_tf;
+    private javax.swing.JButton ok_button;
     private javax.swing.JTextField postal_code_tf;
     private javax.swing.JTextField school_tf;
     private javax.swing.JTextField street_tf;
