@@ -28,7 +28,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
         {
             building_box.addItem(Connection.returnrs("SELECT building_name FROM headquarters").get(i));
         }
-        for(int i = 0 ; i < Connection.returnrs("SELECT building_name FROM headquarters").size() ; i++)
+        for(int i = 0 ; i < Connection.returnrs("SELECT building_name FROM project").size() ; i++)
         {
             assigntoproject.addItem(Connection.returnrs("SELECT p_id FROM project").get(i));
         }
@@ -482,21 +482,29 @@ public class DevDatabaseM extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifyBActionPerformed
 
     private void AddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBActionPerformed
+   
         if(!Connection.returnrs("SELECT country FROM address").contains(country_tf.getText())
                && !Connection.returnrs("SELECT postal_code FROM address").contains(postal_code_tf.getText())
-               && !Connection.returnrs("SELECT house_number FROM address").contains(house_nr_tf.getText())){           
-             Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");}       
+               && !Connection.returnrs("SELECT house_number FROM address").contains(house_nr_tf.getText()))
+        {   
+                    Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");
+        }       
        if(!Connection.returnrs("SELECT course FROM degree").contains(course_tf.getText())
                && !Connection.returnrs("SELECT school FROM degree").contains(school_tf.getText())
-               && !Connection.returnrs("SELECT d_level FROM degree").contains(level_tf.getText())){
-             Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");}
+               && !Connection.returnrs("SELECT d_level FROM degree").contains(level_tf.getText()))
+       {
+                    Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");
+       }
        if(!bsn_tf.getText().isEmpty() && !Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
             {Connection.insertrs("INSERT INTO employee VALUES ('"+bsn_tf.getText()+"', '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_box.getSelectedItem()+"');"
                      +"INSERT INTO address_employee VALUES('"+bsn_tf.getText()+"','"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"');"
                      +"INSERT INTO degree_employee VALUES('" + bsn_tf.getText()+ "','" + course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');"                                        
                      +"INSERT INTO position_employee VALUES('"+bsn_tf.getText()+"','"+work_position.getSelectedItem()+"','"+work_hours.getText()+"');"
-                     +"INSERT INTO position_project VALUES('"+work_position.getSelectedItem()+"','"+assigntoproject.getSelectedItem()+"')");}    
-            
+                     );}   
+       if(!Connection.returnrs("SELECT pos_name FROM position_project").contains(work_position.getSelectedItem()) && !Connection.returnrs("SELECT p_id FROM position_project").contains(assigntoproject.getSelectedItem()))
+       {
+               Connection.insertrs("INSERT INTO position_project VALUES('"+work_position.getSelectedItem()+"','"+assigntoproject.getSelectedItem()+"')");
+                       }    
         //Connection.returnrs("Select e_bsn from employee;");
 // hier moet een add to database query komen waar alle variable van employee
         // adress en degree worden toegevoegd aan database

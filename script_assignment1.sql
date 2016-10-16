@@ -11,29 +11,29 @@ drop table if exists position_work cascade;
 drop table if exists position_project cascade;
 
 Create Table address(
-country char(20) not null,
-postal_code char(10) not null,
-house_number char(10) not null,
-city char(20),
-street char(20),
+country char not null,
+postal_code char not null,
+house_number char not null,
+city char,
+street char,
 primary key (country,postal_code,house_number),
 unique(country,postal_code,house_number)
 );
 
 
 Create Table degree(
-course char(20) not null,
-school char(20) not null,
-d_level char(20) not null,
+course char not null,
+school char not null,
+d_level char not null,
 primary key (course, school, d_level),
 unique (course, school, d_level)
 );
 
 Create Table headquarters(
-building_name char(20) not null,
-country char(20) not null,
-postal_code char(10) not null,
-house_number char(10) not null,
+building_name char not null,
+country char not null,
+postal_code char not null,
+house_number char not null,
 building_rent int,
 number_rooms int,
 primary key (building_name),
@@ -41,31 +41,31 @@ foreign key (country,postal_code,house_number) references address(country,postal
 );
 
 Create Table project(
-p_id char(3) not null,
+p_id char not null,
 p_budget int,
 p_total_hours int,
-building_name char(20) ,
+building_name char ,
 primary key (p_id),
 foreign key (building_name) references headquarters on delete cascade
 );
 create table position_work(
-pos_name char(20) not null,
-pos_description char(30),
+pos_name char not null,
+pos_description char,
 hours_fee int,
 primary key(pos_name)
 );
 Create Table employee(
-e_bsn char(4) not null,
-e_name char(20),
-e_surname char(20),
-building_name char(20) not null,
+e_bsn char not null,
+e_name char,
+e_surname char,
+building_name char not null,
 primary key (e_bsn),
 foreign key (building_name) references headquarters on delete cascade
 );
 
 Create Table position_employee(
-e_bsn char(4),
-p_name char(20),
+e_bsn char,
+p_name char,
 hours int,
 primary key (e_bsn,p_name),
 foreign key (e_bsn) references employee on delete cascade,
@@ -73,27 +73,27 @@ foreign key (p_name) references position_work on delete cascade
 );
 
 Create Table degree_employee(
-e_bsn char(4),
-course char(20) not null,
-school char(20) not null,
-d_level char(20) not null,
+e_bsn char,
+course char not null,
+school char not null,
+d_level char not null,
 primary key (e_bsn, course, school, d_level),
 foreign key (e_bsn) references employee on delete cascade,
 foreign key (course, school, d_level) references degree(course, school, d_level)
 );
 
 Create Table address_employee(
-e_bsn char(4),
-country char(20),
-postal_code char(10),
-house_number char(10),
+e_bsn char,
+country char,
+postal_code char,
+house_number char,
 primary key (e_bsn, country, postal_code,house_number),
 foreign key (e_bsn) references employee on delete cascade,
 foreign key (country,postal_code,house_number) references address(country,postal_code,house_number) on delete set null
 );
 create table position_project(
-pos_name char(20),
-p_id char(3),
+pos_name char,
+p_id char,
 primary key(pos_name, p_id),
 foreign key (pos_name) references position_work on delete cascade,
 foreign key (p_id )references project on delete cascade

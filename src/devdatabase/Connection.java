@@ -42,7 +42,7 @@ public class Connection {
       public static ArrayList returnrs(String SQL) { 
               java.sql.Connection c = null;
               ResultSet rs = null;
-              ArrayList<String> listrs = new ArrayList<String>();
+              ArrayList<String> listrs = new ArrayList<>();
               String password = "password";         // Your password as a String instead of 1234
 
       try {
