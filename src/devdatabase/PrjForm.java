@@ -38,7 +38,8 @@ public class PrjForm extends javax.swing.JFrame {
         prj_id = new javax.swing.JTextField();
         prj_budget = new javax.swing.JTextField();
         prj_hours = new javax.swing.JTextField();
-        HQName = new javax.swing.JComboBox<>();
+        HQName = new javax.swing.JComboBox<String>();
+        goto_employee = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,10 +85,17 @@ public class PrjForm extends javax.swing.JFrame {
             }
         });
 
-        HQName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select headquarters" }));
+        HQName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select headquarters" }));
         HQName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HQNameActionPerformed(evt);
+            }
+        });
+
+        goto_employee.setText("Employee");
+        goto_employee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                goto_employeeActionPerformed(evt);
             }
         });
 
@@ -110,6 +118,10 @@ public class PrjForm extends javax.swing.JFrame {
                         .addComponent(prj_id, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(prj_budget, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)))
                 .addContainerGap(103, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(goto_employee)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +139,9 @@ public class PrjForm extends javax.swing.JFrame {
                     .addComponent(addB)
                     .addComponent(modifyB)
                     .addComponent(deleteB))
-                .addGap(70, 70, 70))
+                .addGap(36, 36, 36)
+                .addComponent(goto_employee)
+                .addContainerGap())
         );
 
         pack();
@@ -168,6 +182,11 @@ public class PrjForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_HQNameActionPerformed
 
+    private void goto_employeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_goto_employeeActionPerformed
+            this.setVisible(false);
+            new DevDatabaseM().setVisible(true);
+    }//GEN-LAST:event_goto_employeeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,6 +226,7 @@ public class PrjForm extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> HQName;
     private javax.swing.JButton addB;
     private javax.swing.JButton deleteB;
+    private javax.swing.JButton goto_employee;
     private javax.swing.JButton modifyB;
     private javax.swing.JTextField prj_budget;
     private javax.swing.JTextField prj_hours;
