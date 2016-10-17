@@ -5,10 +5,8 @@
  */
 package devdatabase;
 
-import java.awt.Label;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
-import javax.swing.ListSelectionModel;
 
 /**
  *
