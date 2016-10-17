@@ -667,9 +667,8 @@ public class DevDatabaseM extends javax.swing.JFrame {
             ArrayList<String> l9 = Connection.returnrs("select a.house_number from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
             ArrayList<String> l10 = Connection.returnrs("select a.city from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
             ArrayList<String> l11 = Connection.returnrs("select a.street from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
-            ArrayList<String> l12 = Connection.returnrs("select pp.pos_name from position_project pp where pp.e_bsn = '" + bsn +"';");
-            ArrayList<String> l13 = Connection.returnrs("select pw.hours_fee from position_project pp, position_work pw where pp.pos_name = pw.pos_name and pp.e_bsn = '" + bsn +"';");
-            e_name_tf.setText(l.get(0)); 
+            ArrayList<String> l12 = Connection.returnrs("select p_name from position_employee where e_bsn = '" + bsn +"';");
+            ArrayList<String> l13 = Connection.returnrs("select hours from position_employee where e_bsn = '" + bsn +"';");
             e_surname_tf.setText(l2.get(0));
             building_box.setSelectedItem(l3.get(0));
             course_tf.setText(l4.get(0));

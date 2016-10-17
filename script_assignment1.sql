@@ -115,5 +115,7 @@ INSERT INTO project (p_id,p_budget,p_total_hours,building_name)
 VALUES ('1',1000,100,'H-Gebouw'),('2',1500,150,'D-Gebouw'),('3',2000,500,'D-Gebouw'),('4',1850,300,'X-Gebouw');
 INSERT INTO position_work (pos_name,pos_description, hours_fee)
 VALUES ('Manager','Manage',100),('Developer','Develop',80),('Tester','Test',65);
-INSERT INTO position_project (e_bsn, p_id, pos_name)
-VALUES ('1112', '1', 'Developer'),('1113', '2','Developer'),('1122','3','Tester');
+INSERT INTO position_employee(e_bsn,p_name,hours)
+VALUES ('1112', 'Manager', 100), ('1113', 'Developer', 200),('1122', 'Tester', 120);
+--INSERT INTO position_project (e_bsn, p_id, pos_name)
+--VALUES ('1112', '1', 'Developer'),('1113', '2','Developer'),('1122','3','Tester');
