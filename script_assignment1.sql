@@ -112,10 +112,8 @@ VALUES ('1112','Economics','Erasmus','Bacherlor'),('1113','Informatica','HRO','B
 INSERT INTO address_employee(e_bsn, country, postal_code,house_number)
 VALUES ('1112','Nederland','3201TT','12'),('1113','Nederland','4211TT','12'),('1122','Nederland','3201TT','7b');
 INSERT INTO project (p_id,p_budget,p_total_hours,building_name)
-VALUES ('1',1000,100,'H-Gebouw'),('2',1500,150,'D-Gebouw'),('3',2000,500,'D-Gebouw'),('4',1850,300,'X-Gebouw');
+VALUES ('1',100000,100,'H-Gebouw'),('2',50000,150,'D-Gebouw'),('3',60000,500,'D-Gebouw'),('4',80000,300,'X-Gebouw');
 INSERT INTO position_work (pos_name,pos_description, hours_fee)
 VALUES ('Manager','Manage',100),('Developer','Develop',80),('Tester','Test',65);
 INSERT INTO position_employee(e_bsn,p_name,hours)
 VALUES ('1112', 'Manager', 100), ('1113', 'Developer', 200),('1122', 'Tester', 120);
---INSERT INTO position_project (e_bsn, p_id, pos_name)
---VALUES ('1112', '1', 'Developer'),('1113', '2','Developer'),('1122','3','Tester');

@@ -31,101 +31,100 @@
                           <Component id="ok_button" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                      <Component id="course_tf" max="32767" attributes="0"/>
-                                                      <Component id="building_box" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="bsn_tf" alignment="0" pref="179" max="32767" attributes="0"/>
-                                                      <Component id="e_name_tf" alignment="0" max="32767" attributes="0"/>
-                                                      <Component id="e_surname_tf" alignment="0" max="32767" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="school_tf" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel19" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="level_tf" min="-2" pref="179" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="city_tf" max="32767" attributes="0"/>
-                                          <Component id="country_tf" max="32767" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Component id="postal_code_tf" min="-2" pref="107" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="house_nr_tf" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                              <Component id="street_tf" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="work_hours" min="-2" pref="97" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="1" attributes="0">
-                                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                                                      <Component id="work_position" min="-2" pref="99" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <EmptySpace pref="46" max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="ModifyB" max="32767" attributes="0"/>
-                                                  <Component id="DeleteB" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="AddB" alignment="0" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Component id="jLabel16" alignment="1" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="370" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabel13" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel15" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                              <Component id="course_tf" max="32767" attributes="0"/>
+                                                              <Component id="building_box" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="bsn_tf" alignment="0" pref="179" max="32767" attributes="0"/>
+                                                              <Component id="e_name_tf" alignment="0" max="32767" attributes="0"/>
+                                                              <Component id="e_surname_tf" alignment="0" max="32767" attributes="0"/>
+                                                          </Group>
+                                                          <Component id="school_tf" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel10" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          </Group>
+                                                          <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel19" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel20" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                                  <Component id="level_tf" min="-2" pref="179" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="city_tf" max="32767" attributes="0"/>
+                                                  <Component id="country_tf" max="32767" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="postal_code_tf" min="-2" pref="107" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="house_nr_tf" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" attributes="0">
+                                                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                                      <Component id="street_tf" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Group type="103" groupAlignment="0" attributes="0">
+                                                          <Component id="work_hours" min="-2" pref="97" max="-2" attributes="0"/>
+                                                          <Group type="102" alignment="1" attributes="0">
+                                                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                                              <Component id="work_position" min="-2" pref="99" max="-2" attributes="0"/>
+                                                          </Group>
+                                                      </Group>
+                                                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                          <Component id="ModifyB" max="32767" attributes="0"/>
+                                                          <Component id="DeleteB" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="AddB" alignment="0" max="32767" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+                                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
+                                  <Component id="jLabel16" alignment="1" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
@@ -252,9 +251,7 @@
                       </Group>
                       <EmptySpace pref="35" max="32767" attributes="0"/>
                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="assigntoproject" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -507,11 +504,6 @@
     <Component class="javax.swing.JLabel" name="jLabel16">
       <Properties>
         <Property name="text" type="java.lang.String" value="assign employee to project"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel17">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="check what projects cannot pay there rent (rent higher than 10% budget)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="building_box">

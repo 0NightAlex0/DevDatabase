@@ -15,7 +15,6 @@ import javax.swing.ListSelectionModel;
  * @author Alex
  */
 public class PrjForm extends javax.swing.JFrame {
-    int projectBudget; int projectHours; 
     DefaultListModel listModel = new DefaultListModel();
     JList project_list;
     /**
@@ -30,7 +29,6 @@ public class PrjForm extends javax.swing.JFrame {
         
         for(int i = 0 ; i < Connection.returnrs("SELECT p_id FROM project p, headquarters h WHERE p.building_name=h.building_name AND p.p_budget*0.10 < h.building_rent").size() ; i++)
         {   
-            //project_budget.addColumn(null);
             project_budget.addItem(Connection.returnrs("SELECT p_id FROM project p, headquarters h WHERE p.building_name=h.building_name AND p.p_budget*0.10 < h.building_rent").get(i));
         }
 // 
@@ -56,7 +54,7 @@ public class PrjForm extends javax.swing.JFrame {
         prj_id = new javax.swing.JTextField();
         prj_budget = new javax.swing.JTextField();
         prj_hours = new javax.swing.JTextField();
-        HQName = new javax.swing.JComboBox<String>();
+        HQName = new javax.swing.JComboBox<>();
         goto_employee = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         project_budget = new javax.swing.JComboBox();
@@ -109,7 +107,7 @@ public class PrjForm extends javax.swing.JFrame {
             }
         });
 
-        HQName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select headquarters" }));
+        HQName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select headquarters" }));
         HQName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HQNameActionPerformed(evt);
@@ -123,7 +121,7 @@ public class PrjForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Projects that can't pay the rent");
+        jLabel1.setText("check what projects cannot pay there rent (rent higher than 10% budget)");
 
         project_budget.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -160,36 +158,36 @@ public class PrjForm extends javax.swing.JFrame {
                         .addComponent(prj_hours, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(prj_id, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(prj_budget, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(goto_employee)
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel2)
-                                        .addGap(19, 19, 19))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(18, 18, 18)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(project_budget, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(building_rent, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(project_budget_tf, javax.swing.GroupLayout.Alignment.LEADING)))
-                            .addComponent(deleteB))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2)
+                                .addGap(19, 19, 19))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(project_budget, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(building_rent, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(project_budget_tf, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(deleteB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(goto_employee)))
+                .addContainerGap(55, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel1)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(project_budget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -200,22 +198,26 @@ public class PrjForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(project_budget_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(51, 51, 51)
-                .addComponent(prj_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(prj_budget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(prj_hours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HQName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addB)
-                    .addComponent(modifyB)
-                    .addComponent(deleteB))
-                .addGap(36, 36, 36)
-                .addComponent(goto_employee)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(prj_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(prj_budget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(prj_hours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(HQName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addB)
+                            .addComponent(modifyB)
+                            .addComponent(deleteB))
+                        .addGap(70, 70, 70))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(goto_employee)
+                        .addGap(61, 61, 61))))
         );
 
         pack();
@@ -233,23 +235,23 @@ public class PrjForm extends javax.swing.JFrame {
     }//GEN-LAST:event_prj_idActionPerformed
 
     private void prj_budgetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prj_budgetActionPerformed
-        projectBudget = Integer.parseInt(prj_budget.getText());
+
     }//GEN-LAST:event_prj_budgetActionPerformed
 
     private void prj_hoursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prj_hoursActionPerformed
-        projectHours = Integer.parseInt(prj_hours.getText());
+
     }//GEN-LAST:event_prj_hoursActionPerformed
 
     private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
         if(!prj_id.getText().isEmpty() && Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
             Connection.insertrs("DELETE FROM project WHERE p_id = '"+ prj_id.getText()+"';"); 
-    // also needs to remove the location
+    // this removes everything that has to do with the id inlcuding the location
         }
     }//GEN-LAST:event_deleteBActionPerformed
 
     private void modifyBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyBActionPerformed
         if(!prj_id.getText().isEmpty() && Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
-            //Connection.insertrs("update project set 
+            Connection.insertrs("update project set p_budget = " + Integer.parseInt(prj_budget.getText()) + ", p_total_hours = " + Integer.parseInt(prj_hours.getText()) + ", building_name = '" + HQName.getSelectedItem().toString() + "' where p_id = '" + prj_id.getText() +"';");
         }
     }//GEN-LAST:event_modifyBActionPerformed
 
