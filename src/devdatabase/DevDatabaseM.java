@@ -47,7 +47,11 @@ public class DevDatabaseM extends javax.swing.JFrame {
             assign_employee_project.addItem(Connection.returnrs("SELECT e_bsn FROM employee").get(i));
             existing_bsn.addItem((String) Connection.returnrs("SELECT e_bsn FROM employee").get(i));
         }
-        
+        for(int i = 0 ; i < Connection.returnrs("SELECT pos_name FROM position_work").size() ; i++)
+        {
+            assign_position_project.addItem(Connection.returnrs("SELECT pos_name FROM position_work").get(i));
+            
+        }        
     }
 
     /**
@@ -103,8 +107,10 @@ public class DevDatabaseM extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         assign_employee_project = new javax.swing.JComboBox();
         assign_button = new javax.swing.JButton();
-        existing_bsn = new javax.swing.JComboBox<>();
+        existing_bsn = new javax.swing.JComboBox<String>();
         ok_button = new javax.swing.JButton();
+        jLabel23 = new javax.swing.JLabel();
+        assign_position_project = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -293,7 +299,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
             }
         });
 
-        existing_bsn.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "select bsn" }));
+        existing_bsn.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "select bsn" }));
         existing_bsn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 existing_bsnActionPerformed(evt);
@@ -304,6 +310,15 @@ public class DevDatabaseM extends javax.swing.JFrame {
         ok_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ok_buttonActionPerformed(evt);
+            }
+        });
+
+        jLabel23.setText("position:");
+
+        assign_position_project.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Position" }));
+        assign_position_project.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assign_position_projectActionPerformed(evt);
             }
         });
 
@@ -390,18 +405,23 @@ public class DevDatabaseM extends javax.swing.JFrame {
                                         .addGap(5, 5, 5)
                                         .addComponent(jLabel17)))))
                         .addGap(91, 91, 91))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(jLabel22)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(assign_employee_project, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(assigntoproject, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(assign_button)
-                        .addGap(123, 123, 123)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(assign_button)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel22)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(assign_employee_project, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(assigntoproject, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(assign_position_project, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -479,7 +499,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel15)
                             .addComponent(level_tf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel17)
@@ -489,8 +509,11 @@ public class DevDatabaseM extends javax.swing.JFrame {
                             .addComponent(assigntoproject, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel22)
                             .addComponent(assign_employee_project, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(assign_button))
-                        .addGap(32, 32, 32))
+                            .addComponent(jLabel23)
+                            .addComponent(assign_position_project, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(assign_button)
+                        .addGap(5, 5, 5))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -621,7 +644,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private void assign_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assign_buttonActionPerformed
        if(!Connection.returnrs("SELECT e_bsn FROM position_project").contains(bsn_tf.getText()) && !Connection.returnrs("SELECT p_id FROM position_project").contains(assigntoproject.getSelectedItem()))
        {
-               Connection.insertrs("INSERT INTO position_project VALUES('"+assign_employee_project.getSelectedItem()+"','"+assigntoproject.getSelectedItem()+"')");
+               Connection.insertrs("INSERT INTO position_project VALUES('"+assign_employee_project.getSelectedItem()+"','"+assigntoproject.getSelectedItem()+"','"+assign_position_project.getSelectedItem()+"')");
                        }    
     }//GEN-LAST:event_assign_buttonActionPerformed
 
@@ -665,6 +688,10 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private void work_positionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_work_positionActionPerformed
 
     }//GEN-LAST:event_work_positionActionPerformed
+
+    private void assign_position_projectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assign_position_projectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_assign_position_projectActionPerformed
         
     private void work_hoursActionPerformed(java.awt.event.ActionEvent evt) {                                             
         
@@ -714,6 +741,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private javax.swing.JButton OverView;
     private javax.swing.JButton assign_button;
     private javax.swing.JComboBox assign_employee_project;
+    private javax.swing.JComboBox assign_position_project;
     private javax.swing.JComboBox assigntoproject;
     private javax.swing.JTextField bsn_tf;
     private javax.swing.JComboBox building_box;
@@ -740,6 +768,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
