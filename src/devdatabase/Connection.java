@@ -66,4 +66,37 @@ public class Connection {
     
             
     }
+      public static ArrayList returnrs2(String SQL) { 
+              java.sql.Connection c = null;
+              ResultSet rs = null;
+              ArrayList<ArrayList> listrs = new ArrayList<>();
+              ArrayList<String> list1 = new ArrayList<>();
+              ArrayList<String> list2 = new ArrayList<>();
+              String password = "password";         // Your password as a String instead of 1234
+
+      try {
+         Class.forName("org.postgresql.Driver");
+         c = DriverManager
+            .getConnection("jdbc:postgresql://localhost:5432/Assignment1",  //Your database path
+            "postgres", password);
+         Statement stmt = c.createStatement();
+         rs = stmt.executeQuery(SQL);
+         c.close();
+         System.out.println("Connection succesful.");
+         while(rs.next()){
+             if(rs.getString(1) != null){list1.add(rs.getString(1));}else {list1.add("");}
+             if(rs.getString(2) != null){list2.add(rs.getString(2));}else {list2.add("");}
+         }
+         listrs.add(list1);listrs.add(list2);
+        
+      } catch (Exception e) {
+         e.printStackTrace();
+         System.err.println(e.getClass().getName()+": "+e.getMessage());
+         System.exit(0);
+          System.out.println("Connection failed.");
+      }
+      return listrs;
+    
+            
+    }      
 }
