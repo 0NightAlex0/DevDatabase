@@ -276,6 +276,11 @@ public class DevDatabaseM extends javax.swing.JFrame {
         assigntoproject.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Project" }));
 
         work_position.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select Position" }));
+        work_position.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                work_positionActionPerformed(evt);
+            }
+        });
 
         jLabel22.setText("Bsn employee:");
 
@@ -639,6 +644,8 @@ public class DevDatabaseM extends javax.swing.JFrame {
             ArrayList<String> l9 = Connection.returnrs("select a.house_number from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
             ArrayList<String> l10 = Connection.returnrs("select a.city from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
             ArrayList<String> l11 = Connection.returnrs("select a.street from employee e,address a, address_employee ae where e.e_bsn = ae.e_bsn and a.country =ae.country and a.postal_code = ae.postal_code and a.house_number = ae.house_number and e.e_bsn = '" + bsn +"';");
+            ArrayList<String> l12 = Connection.returnrs("select pp.pos_name from position_project pp where pp.e_bsn = '" + bsn +"';");
+            ArrayList<String> l13 = Connection.returnrs("select pw.hours_fee from position_project pp, position_work pw where pp.pos_name = pw.pos_name and pp.e_bsn = '" + bsn +"';");
             e_name_tf.setText(l.get(0)); 
             e_surname_tf.setText(l2.get(0));
             building_box.setSelectedItem(l3.get(0));
@@ -650,11 +657,15 @@ public class DevDatabaseM extends javax.swing.JFrame {
             house_nr_tf.setText(l9.get(0));
             city_tf.setText(l10.get(0));
             street_tf.setText(l11.get(0));
+            work_position.setSelectedItem(l12.get(0));
+            work_hours.setText(l13.get(0));
     }
     }//GEN-LAST:event_ok_buttonActionPerformed
-    private void work_positionActionPerformed(java.awt.event.ActionEvent evt) {                                             
+
+    private void work_positionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_work_positionActionPerformed
+
+    }//GEN-LAST:event_work_positionActionPerformed
         
-    }        
     private void work_hoursActionPerformed(java.awt.event.ActionEvent evt) {                                             
         
     }
