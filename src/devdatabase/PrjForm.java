@@ -241,14 +241,14 @@ public class PrjForm extends javax.swing.JFrame {
     }//GEN-LAST:event_prj_hoursActionPerformed
 
     private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
-        if(!prj_id.getText().isEmpty() && !Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
+        if(!prj_id.getText().isEmpty() && Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
             Connection.insertrs("DELETE FROM project WHERE p_id = '"+ prj_id.getText()+"';"); 
     // also needs to remove the location
         }
     }//GEN-LAST:event_deleteBActionPerformed
 
     private void modifyBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifyBActionPerformed
-        if(!prj_id.getText().isEmpty() && !Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
+        if(!prj_id.getText().isEmpty() && Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
             //Connection.insertrs("update project set 
         }
     }//GEN-LAST:event_modifyBActionPerformed
