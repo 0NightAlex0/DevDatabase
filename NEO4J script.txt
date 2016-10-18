@@ -1,0 +1,66 @@
+Airports 6 nodig
+Create(Schiphol:Airport{name:'Schiphol',city:'Amsterdam',size:'Medium',capacity:1500}),
+(Venezia:Airport{name:'Venezia Marco Polo',city:'Venezia' ,size:'Medium',capacity:1550}),
+(Heathrow:Airport{name:'Heathrow',city:'London' ,size:'Large',capacity:2000}),
+(Rome:Airport{name:'Rome Airport',city:'Rome' ,size:'Large',capacity:2150}),
+(Berlin:Airport{name:'Berlin Airport',city:'Berlin' ,size:'Medium',capacity:1600}),
+(Stockholm:Airport{name:'Stockholm Airport',city:'Stockholm', size:'Small',capacity:800})
+;
+
+Terminal 30 nodig
+Create(ta:Terminal{tname:'Terminal A', open:true}),
+(tb:Terminal{tname:'Terminal B',open:true }),
+(tc:Terminal{tname:'Terminal C', open:true }),
+(td:Terminal{tname:'Terminal D', open:false }),
+(te:Terminal{tname:'Terminal E', open: false }),
+
+;
+
+Gates 90 nodig
+Create(g1:gate{gateNumber:'Gate 1',state: ‘Boarding’}),(g2:gate{gateNumber:'Gate 2'}), (g4:gate{gateNumber:'Gate 3'})
+
+
+Bedrijven 5 nodig
+Create(Lufthansa:Company{name:'Lufthansa',plane_number: 15, asset: 15000000}),
+(KLM:Company{name:'KLM' ,plane_number: 20, asset: 18000000}),
+(RyanAir:Company{name:'RyanAir' ,plane_number: 10, asset: 12000000}),
+(Corendon:Company{name:'Corendon' ,plane_number: 12, asset: 14000000}),
+(Ruair:Company{name:'Ruair' ,plane_number: 10, asset: 11000000});
+
+Flights
+Create(f1:Flight{number: 'FL23'}),(f2:Flight{number: 'FL653'}),(f3:Flight{number: 'FL222'}),(f4:Flight{number: 'FL109'}),(f5:Flight{number: 'FL666'});
+
+Gates linken aan terminals
+Match(g1:gate{gateNumber:'Gate 4'}), (g2:gate{gateNumber:'Gate 5'}), (g3:gate{gateNumber:'Gate 6'}),(t:Terminal{tname:'Terminal B'})
+Create(g1)-[st1:state{state: 'Boarding'}]->(t), (g2)-[st2:state{state: 'Closed'}]->(t), (g3)-[st3:state{state: 'Closed'}]->(t)
+
+Terminals linken aan airports
+Match(ta:Terminal{tname:'Terminal A'}),(bt:Terminal{tname:'Terminal B'}),(ct:Terminal{tname:'Terminal C'}),(td:Terminal{tname:'Terminal D'}),(te:Terminal{tname:'Terminal E'}),(air:Airport{name:'Venezia Marco Polo'})
+Create(air)-[h1:Has]->(ta), (air)-[h2:Has]->(tb), (air)-[h3:Has]->(tc), (air)-[h4:Has]->(td), (air)-[h5:Has]->(te)
+
+
+
+
+
+Return codes
+1
+Match(a:Airport{ size:'Large'})
+return a.name,a.capacity;
+2
+Match(a:Airport)
+return a.location, sum(a.capacity);
+3
+Match(a:Airport)
+Return a.name,a.capacity
+order by a.capacity DESC
+LIMIT 1;
+4
+Match(a:Airport{name:'Schiphol'})-[i:Includes]-(t: Terminal {open:'Yes'})
+return t,a;
+5
+Match(a:Airport{location:'London'})-[i:Includes]-(t: Terminal)
+return a,t;
+6
+match (a: Airport{name:'Venezia Marco Polo'})-[:Includes]->(t:Terminal{tname:'Terminal B'})-[:Belongs]->(g:gate{state:'Boarding'})
+return g.gateNumber,g.state;
+7
