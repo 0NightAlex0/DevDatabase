@@ -2,15 +2,15 @@
 	"employee":
 		[
 		{"e_bsn": 1222, "Name":"Ruben","Surname":"Everwijn","work_building":"H-Gebouw",
-		 "address":
+		 "address": //Adress Employee 1 of meer
 			[{"country": "Nederland","Postal_code":"3201TL","City":"Spijkenisse",
 			"Street":"Wagenmaker","house_nr":25},
 			{"country": "Nederland","Postal_code":"3201RR","City":"Spijkenisse",
 		"Street":"Slaanbreek","house_nr":126}],
 		"Position_work": "Manager",
-		"Position_project":
+		"Position_project": //Position Project Employee 0 of meer
 			[{"p_id": "P22","position_project":"Scrummaster"}],
-		"degree_employee":
+		"degree_employee": //Degree Employee 1 of meer
 			[{"Course":"Informatica","School":"HogeSchool Rotterdam","Level":"Batchler"}]
 			},
 		
