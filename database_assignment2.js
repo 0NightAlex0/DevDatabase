@@ -9,7 +9,9 @@
 		"Street":"Slaanbreek","house_nr":126}],
 		"Position_work": "Manager",
 		"Position_project":
-			[{"p_id": "P22","position_project":"Scrummaster"}]
+			[{"p_id": "P22","position_project":"Scrummaster"}],
+		"degree_employee":
+			[{"Course":"Informatica","School":"HogeSchool Rotterdam","Level":"Batchler"}]
 			},
 		
 		{"e_bsn": 1223, "Name":"Alexander","Surname":"Ng","work_building":"B-Gebouw",
