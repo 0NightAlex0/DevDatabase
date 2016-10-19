@@ -22,7 +22,7 @@
 	"headquarters":
 		[
 		{"building_name": "H-Gebouw","rent":3000,"number_rooms":40,
-		"address":
+		"address": //address headquarters 1
 		[{"country": "Nederland","Postal_code":"3201RR","City":"Spijkenisse",
 		"Street":"Slaanbreek","house_nr":126}]},
 		{"building_name": "B-Gebouw","rent":5000,"number_rooms":80,
