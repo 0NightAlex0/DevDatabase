@@ -64,3 +64,185 @@ return a,t;
 match (a: Airport{name:'Venezia Marco Polo'})-[:Includes]->(t:Terminal{tname:'Terminal B'})-[:Belongs]->(g:gate{state:'Boarding'})
 return g.gateNumber,g.state;
 7
+
+
+Airport aan terminals aan Gates CREATE CODE:
+Create(Stockholm:Airport{name:'Stockholm Airport',location:'Stockholm', size:'Small',capacity:1000}),
+(Venezia:Airport{name:'Venezia Marco Polo',location:'Venezia' ,size:'Medium',capacity:4000}),
+(Heathrow:Airport{name:'Heathrow',location:'London' ,size:'Large',capacity:8000}),
+(LondonSouth:Airport{name:'London South Airport',location:'London' ,size:'Large',capacity:9000}),
+(Berlin:Airport{name:'Berlin Airport',location:'Berlin' ,size:'Medium',capacity:3000}),
+(Schiphol:Airport{name:'Schiphol',location:'Amsterdam',size:'Medium', capacity:4000}),
+(Stockholm)-[stin1:Includes]->(st1:Terminal{tname:'Terminal A',open:'Yes'}),
+(Stockholm)-[stin2:Includes]-> (st2:Terminal{tname:'Terminal B',open:'Yes'}),
+(Stockholm)-[stin3:Includes]-> (st3:Terminal{tname:'Terminal C',open:'Yes'}),
+(Stockholm)-[stin4:Includes]->(st4:Terminal{tname:'Terminal D',open:'Yes'}),
+(Stockholm)-[stin5:Includes]-> (st5:Terminal{tname:'Terminal E',open:'No'}),
+(Venezia)-[vein1:Includes]->(ve1:Terminal{tname:'Terminal A',open:'Yes'}),
+(Venezia)-[vein2:Includes]-> (ve2:Terminal{tname:'Terminal B',open:'Yes'}),
+(Venezia)-[vein3:Includes]-> (ve3:Terminal{tname:'Terminal C',open:'Yes'}),
+(Venezia)-[vein4:Includes]->(ve4:Terminal{tname:'Terminal D',open:'Yes'}),
+(Venezia)-[vein5:Includes]-> (ve5:Terminal{tname:'Terminal E',open:'No'}),
+(Heathrow)-[hein1:Includes]->(he1:Terminal{tname:'Terminal A',open:'Yes'}),
+(Heathrow)-[hein2:Includes]-> (he2:Terminal{tname:'Terminal B',open:'Yes'}),
+(Heathrow)-[hein3:Includes]-> (he3:Terminal{tname:'Terminal C',open:'Yes'}),
+(Heathrow)-[hein4:Includes]->(he4:Terminal{tname:'Terminal D',open:'Yes'}),
+(Heathrow)-[hein5:Includes]-> (he5:Terminal{tname:'Terminal E',open:'No'}),
+(LondonSouth)-[loin1:Includes]->(lo1:Terminal{tname:'Terminal A',open:'Yes'}),
+(LondonSouth)-[loin2:Includes]-> (lo2:Terminal{tname:'Terminal B',open:'Yes'}),
+(LondonSouth)-[loin3:Includes]-> (lo3:Terminal{tname:'Terminal C',open:'Yes'}),
+(LondonSouth)-[loin4:Includes]->(lo4:Terminal{tname:'Terminal D',open:'Yes'}),
+(LondonSouth)-[loin5:Includes]-> (lo5:Terminal{tname:'Terminal E',open:'No'}),
+(Berlin)-[bein1:Includes]->(be1:Terminal{tname:'Terminal A',open:'Yes'}),
+(Berlin)-[bein2:Includes]-> (be2:Terminal{tname:'Terminal B',open:'Yes'}),
+(Berlin)-[bein3:Includes]-> (be3:Terminal{tname:'Terminal C',open:'Yes'}),
+(Berlin)-[bein4:Includes]->(be4:Terminal{tname:'Terminal D',open:'Yes'}),
+(Berlin)-[bein5:Includes]-> (be5:Terminal{tname:'Terminal E',open:'No'}),
+(Schiphol)-[scin1:Includes]->(sc1:Terminal{tname:'Terminal A',open:'Yes'}),
+(Schiphol)-[scin2:Includes]-> (sc2:Terminal{tname:'Terminal B',open:'Yes'}),
+(Schiphol)-[scin3:Includes]-> (sc3:Terminal{tname:'Terminal C',open:'Yes'}),
+(Schiphol)-[scin4:Includes]->(sc4:Terminal{tname:'Terminal D',open:'Yes'}),
+(Schiphol)-[scin5:Includes]-> (sc5:Terminal{tname:'Terminal E',open:'No'}),
+
+(st1)-[st1b1:Belongs]->(st1g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(st1)-[st1b2:Belongs]->(st1g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(st1)-[st1b3:Belongs]->(st1g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(st2)-[st2b1:Belongs]->(st2g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(st2)-[st2b2:Belongs]->(st2g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(st2)-[st2b3:Belongs]->(st2g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(st3)-[st3b1:Belongs]->(st3g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(st3)-[st3b2:Belongs]->(st3g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(st3)-[st3b3:Belongs]->(st3g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(st4)-[st4b1:Belongs]->(st4g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(st4)-[st4b2:Belongs]->(st4g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(st4)-[st4b3:Belongs]->(st4g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(st5)-[st5b1:Belongs]->(st5g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(st5)-[st5b2:Belongs]->(st5g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(st5)-[st5b3:Belongs]->(st5g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+
+(ve1)-[ve1b1:Belongs]->(ve1g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(ve1)-[ve1b2:Belongs]->(ve1g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(ve1)-[ve1b3:Belongs]->(ve1g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(ve2)-[ve2b1:Belongs]->(ve2g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(ve2)-[ve2b2:Belongs]->(ve2g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(ve2)-[ve2b3:Belongs]->(ve2g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(ve3)-[ve3b1:Belongs]->(ve3g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(ve3)-[ve3b2:Belongs]->(ve3g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(ve3)-[ve3b3:Belongs]->(ve3g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(ve4)-[ve4b1:Belongs]->(ve4g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(ve4)-[ve4b2:Belongs]->(ve4g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(ve4)-[ve4b3:Belongs]->(ve4g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(ve5)-[ve5b1:Belongs]->(ve5g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(ve5)-[ve5b2:Belongs]->(ve5g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(ve5)-[ve5b3:Belongs]->(ve5g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+
+(he1)-[he1b1:Belongs]->(he1g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(he1)-[he1b2:Belongs]->(he1g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(he1)-[he1b3:Belongs]->(he1g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(he2)-[he2b1:Belongs]->(he2g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(he2)-[he2b2:Belongs]->(he2g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(he2)-[he2b3:Belongs]->(he2g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(he3)-[he3b1:Belongs]->(he3g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(he3)-[he3b2:Belongs]->(he3g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(he3)-[he3b3:Belongs]->(he3g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(he4)-[he4b1:Belongs]->(he4g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(he4)-[he4b2:Belongs]->(he4g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(he4)-[he4b3:Belongs]->(he4g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(he5)-[he5b1:Belongs]->(he5g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(he5)-[he5b2:Belongs]->(he5g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(he5)-[he5b3:Belongs]->(he5g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+
+(lo1)-[lo1b1:Belongs]->(lo1g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(lo1)-[lo1b2:Belongs]->(lo1g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(lo1)-[lo1b3:Belongs]->(lo1g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(lo2)-[lo2b1:Belongs]->(lo2g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(lo2)-[lo2b2:Belongs]->(lo2g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(lo2)-[lo2b3:Belongs]->(lo2g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(lo3)-[lo3b1:Belongs]->(lo3g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(lo3)-[lo3b2:Belongs]->(lo3g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(lo3)-[lo3b3:Belongs]->(lo3g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(lo4)-[lo4b1:Belongs]->(lo4g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(lo4)-[lo4b2:Belongs]->(lo4g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(lo4)-[lo4b3:Belongs]->(lo4g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(lo5)-[lo5b1:Belongs]->(lo5g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(lo5)-[lo5b2:Belongs]->(lo5g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(lo5)-[lo5b3:Belongs]->(lo5g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+
+(be1)-[be1b1:Belongs]->(be1g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(be1)-[be1b2:Belongs]->(be1g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(be1)-[be1b3:Belongs]->(be1g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(be2)-[be2b1:Belongs]->(be2g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(be2)-[be2b2:Belongs]->(be2g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(be2)-[be2b3:Belongs]->(be2g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(be3)-[be3b1:Belongs]->(be3g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(be3)-[be3b2:Belongs]->(be3g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(be3)-[be3b3:Belongs]->(be3g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(be4)-[be4b1:Belongs]->(be4g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(be4)-[be4b2:Belongs]->(be4g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(be4)-[be4b3:Belongs]->(be4g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(be5)-[be5b1:Belongs]->(be5g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(be5)-[be5b2:Belongs]->(be5g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(be5)-[be5b3:Belongs]->(be5g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+
+(sc1)-[sc1b1:Belongs]->(sc1g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(sc1)-[sc1b2:Belongs]->(sc1g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(sc1)-[sc1b3:Belongs]->(sc1g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(sc2)-[sc2b1:Belongs]->(sc2g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(sc2)-[sc2b2:Belongs]->(sc2g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(sc2)-[sc2b3:Belongs]->(sc2g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(sc3)-[sc3b1:Belongs]->(sc3g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(sc3)-[sc3b2:Belongs]->(sc3g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(sc3)-[sc3b3:Belongs]->(sc3g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(sc4)-[sc4b1:Belongs]->(sc4g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(sc4)-[sc4b2:Belongs]->(sc4g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(sc4)-[sc4b3:Belongs]->(sc4g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
+(sc5)-[sc5b1:Belongs]->(sc5g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(sc5)-[sc5b2:Belongs]->(sc5g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(sc5)-[sc5b3:Belongs]->(sc5g3:gate{gateNumber:'Gate 3',state:'Boarding'});
+
+NIET BELANGRIJKE CODE
+Terminals aan Gates
+Match(ta:Terminal) WHERE ID(ta)=74
+Create(ta)-[b1:Belongs]->(g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
+(ta)-[b2:Belongs]->(g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
+(ta)-[b3:Belongs]->(g3:gate{gateNumber:'Gate 3',state:'Boarding'})
+
+
+Airports 6 nodig
+Create(Schiphol:Airport{name:'Schiphol',location:'Amsterdam',size:'Medium', capacity:4000}),
+(Venezia:Airport{name:'Venezia Marco Polo',location:'Venezia' ,size:'Medium',capacity:4000}),
+(Heathrow:Airport{name:'Heathrow',location:'London' ,size:'Large',capacity:8000}),
+(LondonSouth:Airport{name:'London South Airport',location:'London' ,size:'Large',capacity:9000}),
+(Berlin:Airport{name:'Berlin Airport',location:'Berlin' ,size:'Medium',capacity:3000}),
+(Stockholm:Airport{name:'Stockholm Airport',location:'Stockholm', size:'Small',capacity:1000});
+
+Terminal 30 nodig
+Create(ta:Terminal{tname:'Terminal A'}),(tb:Terminal{tname:'Terminal B'}),
+(tc:Terminal{tname:'Terminal C'}),(td:Terminal{tname:'Terminal D'}),
+(te:Terminal{tname:'Terminal E'});
+
+Gates 90 nodig
+Create(g1:gate{gateNumber:'Gate 1'}),(g2:gate{gateNumber:'Gate 2'}),(g4:gate{gateNumber:'Gate 4'}),
+(g3:gate{gateNumber:'Gate 3'}),(g5:gate{gateNumber:'Gate 5'}),(g6:gate{gateNumber:'Gate 6'}),
+(g7:gate{gateNumber:'Gate 7'}),(g8:gate{gateNumber:'Gate 8'}),(g9:gate{gateNumber:'Gate 9'}),
+(g10:gate{gateNumber:'Gate 10'}),(g11:gate{gateNumber:'Gate 11'}),(g12:gate{gateNumber:'Gate 12'}),
+(g13:gate{gateNumber:'Gate 13'}),(g14:gate{gateNumber:'Gate 14'}),(g15:gate{gateNumber:'Gate 15'});
+
+
+Bedrijven 5 nodig
+Create(Lufthansa:company{name:'Lufthansa'}),(KLM:company{name:'KLM'}),
+(RyanAir:company{name:'RyanAir'}),(Corendon:company{name:'Corendon'}),
+(Ruair:company{name:'Ruair'});
+
+Flights
+Create(f1:Flight{number: 'FL23'}),(f2:Flight{number: 'FL653'}),
+(f3:Flight{number: 'FL222'}),(f4:Flight{number: 'FL109'}),(f5:Flight{number: 'FL666'});
+
+Gates linken aan terminals
+Match(g1:gate{gateNumber:'Gate 4'}), (g2:gate{gateNumber:'Gate 5'}), (g3:gate{gateNumber:'Gate 6'}),(t:Terminal{tname:'Terminal B'})
+Create(g1)-[st1:state{state: 'Boarding'}]->(t), (g2)-[st2:state{state: 'Closed'}]->(t), (g3)-[st3:state{state: 'Closed'}]->(t)
+
+Terminals linken aan airports
+Match(ta:Terminal{tname:'Terminal A'}),(bt:Terminal{tname:'Terminal B'}),(ct:Terminal{tname:'Terminal C'}),
+(td:Terminal{tname:'Terminal D'}),(te:Terminal{tname:'Terminal E'}),(air:Airport{name:'Venezia Marco Polo'})
+Create(air)-[h1:Has]->(ta), (air)-[h2:Has]->(tb), (air)-[h3:Has]->(tc), (air)-[h4:Has]->(td), (air)-[h5:Has]->(te)
