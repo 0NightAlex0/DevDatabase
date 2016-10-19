@@ -20,6 +20,13 @@ return a,t;
 match (a: Airport{name:'Venezia Marco Polo'})-[:Includes]->(t:Terminal{tname:'Terminal B'})-[:Belongs]->(g:gate{state:'Boarding'})
 return g.gateNumber,g.state;
 7
+Match(c:Company)-[:sells]->(f:Flight)-[:travels]->(a:Airport)
+where a.location = 'Rome' and (c.name = 'KLM' or c.name = 'Lufthansa')
+return f.code,f.plane;
+8
+Match(c:Company)-[:sells]->(f:Flight)-[t:travels]->(a:Airport)
+where a.location = 'Rome' and t.time <1500
+return c.name,count(f)as total_flights;
 
 
 Airport aan terminals aan Gates (everything)CREATE CODE:
