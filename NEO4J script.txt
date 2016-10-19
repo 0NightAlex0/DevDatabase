@@ -1,47 +1,3 @@
-Airports 6 nodig
-Create(Schiphol:Airport{name:'Schiphol',city:'Amsterdam',size:'Medium',capacity:1500}),
-(Venezia:Airport{name:'Venezia Marco Polo',city:'Venezia' ,size:'Medium',capacity:1550}),
-(Heathrow:Airport{name:'Heathrow',city:'London' ,size:'Large',capacity:2000}),
-(Rome:Airport{name:'Rome Airport',city:'Rome' ,size:'Large',capacity:2150}),
-(Berlin:Airport{name:'Berlin Airport',city:'Berlin' ,size:'Medium',capacity:1600}),
-(Stockholm:Airport{name:'Stockholm Airport',city:'Stockholm', size:'Small',capacity:800})
-;
-
-Terminal 30 nodig
-Create(ta:Terminal{tname:'Terminal A', open:true}),
-(tb:Terminal{tname:'Terminal B',open:true }),
-(tc:Terminal{tname:'Terminal C', open:true }),
-(td:Terminal{tname:'Terminal D', open:false }),
-(te:Terminal{tname:'Terminal E', open: false }),
-
-;
-
-Gates 90 nodig
-Create(g1:gate{gateNumber:'Gate 1',state: ‘Boarding’}),(g2:gate{gateNumber:'Gate 2'}), (g4:gate{gateNumber:'Gate 3'})
-
-
-Bedrijven 5 nodig
-Create(Lufthansa:Company{name:'Lufthansa',plane_number: 15, asset: 15000000}),
-(KLM:Company{name:'KLM' ,plane_number: 20, asset: 18000000}),
-(RyanAir:Company{name:'RyanAir' ,plane_number: 10, asset: 12000000}),
-(Corendon:Company{name:'Corendon' ,plane_number: 12, asset: 14000000}),
-(Ruair:Company{name:'Ruair' ,plane_number: 10, asset: 11000000});
-
-Flights
-Create(f1:Flight{number: 'FL23'}),(f2:Flight{number: 'FL653'}),(f3:Flight{number: 'FL222'}),(f4:Flight{number: 'FL109'}),(f5:Flight{number: 'FL666'});
-
-Gates linken aan terminals
-Match(g1:gate{gateNumber:'Gate 4'}), (g2:gate{gateNumber:'Gate 5'}), (g3:gate{gateNumber:'Gate 6'}),(t:Terminal{tname:'Terminal B'})
-Create(g1)-[st1:state{state: 'Boarding'}]->(t), (g2)-[st2:state{state: 'Closed'}]->(t), (g3)-[st3:state{state: 'Closed'}]->(t)
-
-Terminals linken aan airports
-Match(ta:Terminal{tname:'Terminal A'}),(bt:Terminal{tname:'Terminal B'}),(ct:Terminal{tname:'Terminal C'}),(td:Terminal{tname:'Terminal D'}),(te:Terminal{tname:'Terminal E'}),(air:Airport{name:'Venezia Marco Polo'})
-Create(air)-[h1:Has]->(ta), (air)-[h2:Has]->(tb), (air)-[h3:Has]->(tc), (air)-[h4:Has]->(td), (air)-[h5:Has]->(te)
-
-
-
-
-
 Return codes
 1
 Match(a:Airport{ size:'Large'})
@@ -66,18 +22,18 @@ return g.gateNumber,g.state;
 7
 
 
-Airport aan terminals aan Gates CREATE CODE:
-Create(Stockholm:Airport{name:'Stockholm Airport',location:'Stockholm', size:'Small',capacity:1000}),
+Airport aan terminals aan Gates (everything)CREATE CODE:
+Create(RomeA:Airport{name:'RomeA',location:'Rome' ,size:'Large',capacity:2150}),
 (Venezia:Airport{name:'Venezia Marco Polo',location:'Venezia' ,size:'Medium',capacity:4000}),
 (Heathrow:Airport{name:'Heathrow',location:'London' ,size:'Large',capacity:8000}),
 (LondonSouth:Airport{name:'London South Airport',location:'London' ,size:'Large',capacity:9000}),
 (Berlin:Airport{name:'Berlin Airport',location:'Berlin' ,size:'Medium',capacity:3000}),
 (Schiphol:Airport{name:'Schiphol',location:'Amsterdam',size:'Medium', capacity:4000}),
-(Stockholm)-[stin1:Includes]->(st1:Terminal{tname:'Terminal A',open:'Yes'}),
-(Stockholm)-[stin2:Includes]-> (st2:Terminal{tname:'Terminal B',open:'Yes'}),
-(Stockholm)-[stin3:Includes]-> (st3:Terminal{tname:'Terminal C',open:'Yes'}),
-(Stockholm)-[stin4:Includes]->(st4:Terminal{tname:'Terminal D',open:'Yes'}),
-(Stockholm)-[stin5:Includes]-> (st5:Terminal{tname:'Terminal E',open:'No'}),
+(RomeA)-[stin1:Includes]->(st1:Terminal{tname:'Terminal A',open:'Yes'}),
+(RomeA)-[stin2:Includes]-> (st2:Terminal{tname:'Terminal B',open:'Yes'}),
+(RomeA)-[stin3:Includes]-> (st3:Terminal{tname:'Terminal C',open:'Yes'}),
+(RomeA)-[stin4:Includes]->(st4:Terminal{tname:'Terminal D',open:'Yes'}),
+(RomeA)-[stin5:Includes]-> (st5:Terminal{tname:'Terminal E',open:'No'}),
 (Venezia)-[vein1:Includes]->(ve1:Terminal{tname:'Terminal A',open:'Yes'}),
 (Venezia)-[vein2:Includes]-> (ve2:Terminal{tname:'Terminal B',open:'Yes'}),
 (Venezia)-[vein3:Includes]-> (ve3:Terminal{tname:'Terminal C',open:'Yes'}),
@@ -198,51 +154,53 @@ Create(Stockholm:Airport{name:'Stockholm Airport',location:'Stockholm', size:'Sm
 (sc4)-[sc4b3:Belongs]->(sc4g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
 (sc5)-[sc5b1:Belongs]->(sc5g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
 (sc5)-[sc5b2:Belongs]->(sc5g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
-(sc5)-[sc5b3:Belongs]->(sc5g3:gate{gateNumber:'Gate 3',state:'Boarding'});
+(sc5)-[sc5b3:Belongs]->(sc5g3:gate{gateNumber:'Gate 3',state:'Boarding'}),
 
-NIET BELANGRIJKE CODE
-Terminals aan Gates
-Match(ta:Terminal) WHERE ID(ta)=74
-Create(ta)-[b1:Belongs]->(g1:gate{gateNumber:'Gate 1',state:'Closed'}), 
-(ta)-[b2:Belongs]->(g2:gate{gateNumber:'Gate 2',state:'Boarding'}), 
-(ta)-[b3:Belongs]->(g3:gate{gateNumber:'Gate 3',state:'Boarding'})
+(Lufthansa:Company{name:'Lufthansa',plane_number: 15, asset: 15000000}),
+(KLM:Company{name:'KLM' ,plane_number: 20, asset: 18000000}),
+(RyanAir:Company{name:'RyanAir' ,plane_number: 10, asset: 12000000}),
+(Corendon:Company{name:'Corendon' ,plane_number: 12, asset: 14000000}),
+(Ruair:Company{name:'Ruair' ,plane_number: 10, asset: 11000000}),
 
+(KLM)-[bas1a:based{rent:5000, since:'2001'}]->(RomeA),
+(KLM)-[bas1b:based{rent:5000, since:'2002'}]->(Schiphol),
+(KLM)-[bas1c:based{rent:5000, since:'2003'}]->(Heathrow),
+(KLM)-[bas1d:based{rent:5000, since:'2004'}]->(LondonSouth),
+(KLM)-[bas1e:based{rent:5000, since:'2004'}]->(Berlin),
+(Lufthansa)-[bas2a:based{rent:4500, since:'2004'}]->(RomeA),
+(Lufthansa)-[bas2b:based{rent:4500, since:'2004'}]->(Berlin),
+(Lufthansa)-[bas2c:based{rent:4500, since:'2004'}]->(Venezia),
+(RyanAir)-[bas3a:based{rent:3000, since:'2001'}]->(RomeA),
+(RyanAir)-[bas3b:based{rent:3000, since:'2002'}]->(Schiphol),
+(RyanAir)-[bas3c:based{rent:3000, since:'2003'}]->(Heathrow),
+(Ruair)-[bas4a:based{rent:3000, since:'2004'}]->(LondonSouth),
+(Ruair)-[bas4b:based{rent:3000, since:'2004'}]->(Berlin),
+(Ruair)-[bas4c:based{rent:3000, since:'2001'}]->(RomeA),
+(Corendon)-[bas1b1:based{rent:5000, since:'2002'}]->(Schiphol),
+(Corendon)-[bas1c2:based{rent:5000, since:'2003'}]->(Heathrow),
+(Corendon)-[bas1d3:based{rent:5000, since:'2004'}]->(LondonSouth),
+(Corendon)-[bas1e4:based{rent:5000, since:'2004'}]->(Berlin),
 
-Airports 6 nodig
-Create(Schiphol:Airport{name:'Schiphol',location:'Amsterdam',size:'Medium', capacity:4000}),
-(Venezia:Airport{name:'Venezia Marco Polo',location:'Venezia' ,size:'Medium',capacity:4000}),
-(Heathrow:Airport{name:'Heathrow',location:'London' ,size:'Large',capacity:8000}),
-(LondonSouth:Airport{name:'London South Airport',location:'London' ,size:'Large',capacity:9000}),
-(Berlin:Airport{name:'Berlin Airport',location:'Berlin' ,size:'Medium',capacity:3000}),
-(Stockholm:Airport{name:'Stockholm Airport',location:'Stockholm', size:'Small',capacity:1000});
+(KLM)-[sl1a:sells{price:800}]->(Fl1 :Flight{code:'AE1',plane:'PlaneK1'}),
+(KLM)-[sl1b:sells{price:700}]->(Fl2 :Flight{code:'AE2',plane:'PlaneK2'}),
+(KLM)-[sl1c:sells{price:700}]->(Fl3 :Flight{code:'AE3',plane:'PlaneK3'}),
+(Lufthansa)-[sl1a1:sells{price:800}]->(Fl4 :Flight{code:'AE4',plane:'PlaneK4'}),
+(Lufthansa)-[sl1b2:sells{price:750}]->(Fl5 :Flight{code:'AE5',plane:'PlaneK5'}),
+(Lufthansa)-[sl1c3:sells{price:750}]->(Fl6 :Flight{code:'AE6',plane:'PlaneK6'}),
+(RyanAir)-[sl1a4:sells{price:830}]->(Fl7 :Flight{code:'AE7',plane:'PlaneK7'}),
+(RyanAir)-[sl1b5:sells{price:740}]->(Fl8 :Flight{code:'AE8',plane:'PlaneK8'}),
+(Ruair)-[sl1c6:sells{price:720}]->(Fl9 :Flight{code:'AE9',plane:'PlaneK9'}),
+(Ruair)-[sl1a7:sells{price:810}]->(Fl10 :Flight{code:'AE10',plane:'PlaneK10'}),
+(Corendon)-[sl1b8:sells{price:730}]->(Fl11 :Flight{code:'AE11',plane:'PlaneK11'}),
+(Corendon)-[sl1c9:sells{price:740}]->(Fl12 :Flight{code:'AE12',plane:'PlaneK12'}),
 
-Terminal 30 nodig
-Create(ta:Terminal{tname:'Terminal A'}),(tb:Terminal{tname:'Terminal B'}),
-(tc:Terminal{tname:'Terminal C'}),(td:Terminal{tname:'Terminal D'}),
-(te:Terminal{tname:'Terminal E'});
+(Fl1)-[tra1:travels{from:'Schiphol',distance:5000,time:1300}]->(RomeA),
+(Fl2)-[tra2:travels{from:'LondonSouth',distance:4000,time:1430}]->(RomeA),
+(Fl3)-[tra3:travels{from:'Berlin',distance:4500,time:1600}]->(RomeA),
+(Fl4)-[tra4:travels{from:'Venezia',distance:3800,time:1430}]->(RomeA),
+(Fl5)-[tra5:travels{from:'RomeA',distance:5000,time:1800}]->(Berlin),
+(Fl6)-[tra6:travels{from:'Venezia',distance:4000,time:1730}]->(Berlin),
+(Fl7)-[tra7:travels{from:'Heathrow',distance:5000,time:1300}]->(RomeA),
+(Fl8)-[tra8:travels{from:'LondonSouth',distance:4000,time:1430}]->(Heathrow)
+;
 
-Gates 90 nodig
-Create(g1:gate{gateNumber:'Gate 1'}),(g2:gate{gateNumber:'Gate 2'}),(g4:gate{gateNumber:'Gate 4'}),
-(g3:gate{gateNumber:'Gate 3'}),(g5:gate{gateNumber:'Gate 5'}),(g6:gate{gateNumber:'Gate 6'}),
-(g7:gate{gateNumber:'Gate 7'}),(g8:gate{gateNumber:'Gate 8'}),(g9:gate{gateNumber:'Gate 9'}),
-(g10:gate{gateNumber:'Gate 10'}),(g11:gate{gateNumber:'Gate 11'}),(g12:gate{gateNumber:'Gate 12'}),
-(g13:gate{gateNumber:'Gate 13'}),(g14:gate{gateNumber:'Gate 14'}),(g15:gate{gateNumber:'Gate 15'});
-
-
-Bedrijven 5 nodig
-Create(Lufthansa:company{name:'Lufthansa'}),(KLM:company{name:'KLM'}),
-(RyanAir:company{name:'RyanAir'}),(Corendon:company{name:'Corendon'}),
-(Ruair:company{name:'Ruair'});
-
-Flights
-Create(f1:Flight{number: 'FL23'}),(f2:Flight{number: 'FL653'}),
-(f3:Flight{number: 'FL222'}),(f4:Flight{number: 'FL109'}),(f5:Flight{number: 'FL666'});
-
-Gates linken aan terminals
-Match(g1:gate{gateNumber:'Gate 4'}), (g2:gate{gateNumber:'Gate 5'}), (g3:gate{gateNumber:'Gate 6'}),(t:Terminal{tname:'Terminal B'})
-Create(g1)-[st1:state{state: 'Boarding'}]->(t), (g2)-[st2:state{state: 'Closed'}]->(t), (g3)-[st3:state{state: 'Closed'}]->(t)
-
-Terminals linken aan airports
-Match(ta:Terminal{tname:'Terminal A'}),(bt:Terminal{tname:'Terminal B'}),(ct:Terminal{tname:'Terminal C'}),
-(td:Terminal{tname:'Terminal D'}),(te:Terminal{tname:'Terminal E'}),(air:Airport{name:'Venezia Marco Polo'})
-Create(air)-[h1:Has]->(ta), (air)-[h2:Has]->(tb), (air)-[h3:Has]->(tc), (air)-[h4:Has]->(td), (air)-[h5:Has]->(te)

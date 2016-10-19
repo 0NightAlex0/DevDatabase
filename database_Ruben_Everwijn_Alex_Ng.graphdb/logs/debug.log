@@ -815,3 +815,43 @@ Storage files: (filename : modification date - size)
 2016-10-18 15:09:09.372+0000 INFO  [o.n.k.i.DiagnosticsManager] --- SERVER STARTED START ---
 2016-10-18 15:09:14.654+0000 INFO  [o.n.k.i.DiagnosticsManager] --- SERVER STARTED END ---
 2016-10-18 16:05:35.665+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 414ms.
+2016-10-18 17:05:36.048+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 336ms.
+2016-10-18 18:51:00.253+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [68]:  Starting check pointing...
+2016-10-18 18:51:00.254+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [68]:  Starting store flush...
+2016-10-18 18:51:00.332+0000 INFO  [o.n.k.i.s.c.CountsTracker] About to rotate counts store at transaction 68 to [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alex_Ng.graphdb\neostore.counts.db.b], from [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alex_Ng.graphdb\neostore.counts.db.a].
+2016-10-18 18:51:00.336+0000 INFO  [o.n.k.i.s.c.CountsTracker] Successfully rotated counts store at transaction 68 to [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alex_Ng.graphdb\neostore.counts.db.b], from [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alex_Ng.graphdb\neostore.counts.db.a].
+2016-10-18 18:51:00.752+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [68]:  Store flush completed
+2016-10-18 18:51:00.752+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [68]:  Starting appending check point entry into the tx log...
+2016-10-18 18:51:00.774+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [68]:  Appending check point entry into the tx log completed
+2016-10-18 18:51:00.774+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [68]:  Check pointing completed
+2016-10-18 18:51:00.774+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Starting log pruning.
+2016-10-18 18:51:00.775+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Log pruning complete.
+2016-10-18 19:05:36.545+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 331ms.
+2016-10-18 20:05:36.956+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 374ms.
+2016-10-18 21:05:37.344+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 384ms.
+2016-10-19 11:10:58.544+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 50010127ms.
+2016-10-19 11:59:07.868+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 347ms.
+2016-10-19 12:59:08.247+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 372ms.
+2016-10-19 13:16:49.846+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [72]:  Starting check pointing...
+2016-10-19 13:16:49.847+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [72]:  Starting store flush...
+2016-10-19 13:16:49.847+0000 INFO  [o.n.k.i.s.c.CountsTracker] About to rotate counts store at transaction 72 to [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alex_Ng.graphdb\neostore.counts.db.a], from [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alex_Ng.graphdb\neostore.counts.db.b].
+2016-10-19 13:16:49.850+0000 INFO  [o.n.k.i.s.c.CountsTracker] Successfully rotated counts store at transaction 72 to [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alex_Ng.graphdb\neostore.counts.db.a], from [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alex_Ng.graphdb\neostore.counts.db.b].
+2016-10-19 13:16:50.269+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [72]:  Store flush completed
+2016-10-19 13:16:50.269+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [72]:  Starting appending check point entry into the tx log...
+2016-10-19 13:16:50.293+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [72]:  Appending check point entry into the tx log completed
+2016-10-19 13:16:50.293+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [72]:  Check pointing completed
+2016-10-19 13:16:50.293+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Starting log pruning.
+2016-10-19 13:16:50.294+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Log pruning complete.
+2016-10-19 13:59:08.634+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 329ms.
+2016-10-19 14:14:37.938+0000 INFO  [o.n.k.i.f.CommunityFacadeFactory] Shutdown started
+2016-10-19 14:14:37.938+0000 INFO  [o.n.k.i.f.CommunityFacadeFactory] Database is now unavailable
+2016-10-19 14:14:37.941+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [72]:  Starting check pointing...
+2016-10-19 14:14:37.941+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [72]:  Starting store flush...
+2016-10-19 14:14:37.955+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [72]:  Store flush completed
+2016-10-19 14:14:37.955+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [72]:  Starting appending check point entry into the tx log...
+2016-10-19 14:14:38.000+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [72]:  Appending check point entry into the tx log completed
+2016-10-19 14:14:38.000+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [72]:  Check pointing completed
+2016-10-19 14:14:38.000+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Starting log pruning.
+2016-10-19 14:14:38.001+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Log pruning complete.
+2016-10-19 14:14:39.520+0000 INFO  [o.n.k.i.DiagnosticsManager] --- STOPPING diagnostics START ---
+2016-10-19 14:14:39.520+0000 INFO  [o.n.k.i.DiagnosticsManager] --- STOPPING diagnostics END ---
