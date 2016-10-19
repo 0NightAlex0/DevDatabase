@@ -1,7 +1,7 @@
 { 
 	"employee":
 		[
-		{"e_bsn": 1222, "Name":"Ruben","Surname":"Everwijn","work_building":"H-Gebouw",
+		{"e_bsn": 1222, "Name":"Ruben","Surname":"Everwijn","building_name":"H-Gebouw",
 		 "address": //Adress Employee 1 of meer
 			[{"country": "Nederland","Postal_code":"3201TL","City":"Spijkenisse",
 			"Street":"Wagenmaker","house_nr":25},
@@ -18,6 +18,22 @@
 		 "address":
 			[{"country": "Nederland","Postal_code":"3101GG","City":"Rotterdam",
 			"Street":"Hooivorklaan","house_nr":2}]}
+		]
+	"headquarters":
+		[
+		{"building_name": "H-Gebouw","rent":3000,"number_rooms":40,
+		"address":
+		[{"country": "Nederland","Postal_code":"3201RR","City":"Spijkenisse",
+		"Street":"Slaanbreek","house_nr":126}]},
+		{"building_name": "B-Gebouw","rent":5000,"number_rooms":80,
+		"address":
+		[{"country": "Nederland","Postal_code":"3201RR","City":"Spijkenisse",
+		"Street":"Slaanbreek","house_nr":166}]},
+		]
+	"project":
+		[
+		{"p_id":"P22","p_budget":50000,"p_total_hours": 400,"building_name":"H-Gebouw"},
+		{"p_id":"P23","p_budget":70000,"p_total_hours": 500,"building_name":"B-Gebouw"}
 		]
 }// Deze database werkt niet met primary keys en foreignkeys 
 //  dus alle info over een employee plaats je in employee
