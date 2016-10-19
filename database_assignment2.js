@@ -10,6 +10,7 @@
 		{"e_bsn": 1223, "Name":"Alexander","Surname":"Ng","work_building":"B-Gebouw"}
 		 "address":
 			["country": "Nederland","Postal_code":"3101GG","City":"Rotterdam",
-			"Street":"Hooivorklaan","house_nr":2}}
+			"Street":"Hooivorklaan","house_nr":2}]
 		]
-}
+}// Deze database werkt niet met primary keys en foreignkeys 
+//  dus alle info over een employee plaats je in employee
