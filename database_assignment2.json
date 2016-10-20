@@ -29,7 +29,7 @@
 		"address":
 		[{"country": "Nederland","Postal_code":"3201RR","City":"Spijkenisse",
 		"Street":"Slaanbreek","house_nr":166}]},
-		]
+		],
 	"project":
 		[
 		{"p_id":"P22","p_budget":50000,"p_total_hours": 400,"building_name":"H-Gebouw"},
