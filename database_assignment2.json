@@ -18,7 +18,7 @@
 		 "address":
 			[{"country": "Nederland","Postal_code":"3101GG","City":"Rotterdam",
 			"Street":"Hooivorklaan","house_nr":2}]}
-		]
+		],
 	"headquarters":
 		[
 		{"building_name": "H-Gebouw","rent":3000,"number_rooms":40,
