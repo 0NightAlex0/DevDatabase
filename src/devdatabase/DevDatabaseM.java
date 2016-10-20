@@ -545,46 +545,44 @@ public class DevDatabaseM extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteBActionPerformed
 
     private void ModifyBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyBActionPerformed
-        if(!bsn_tf.getText().isEmpty() && Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
-            
-             {System.out.println("test");
-             Connection.insertrs("update employee set e_name = '"+this.e_name_tf.getText()+"', e_surname = '"+this.e_surname_tf.getText()+"' , building_name = '"+this.building_box.getSelectedItem()+"' where e_bsn = '"+bsn_tf.getText()+"';");
-                if(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size() < 1)
-           {
-                       Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");
-                   }
-               if(Connection.returnrs("SELECT course,school,d_level FROM degree WHERE course='"+course_tf.getText()+"'AND school='"+school_tf.getText()+"'AND d_level='"+level_tf.getText()+"';").size() < 1)
-           {
-                       Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");
-                   }
-             Connection.insertrs("update address_employee set country = '"+this.country_tf.getText()+"', postal_code = '"+this.postal_code_tf.getText()+"' , house_number = '"+this.house_nr_tf.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");
-             Connection.insertrs("update degree_employee set course = '"+this.course_tf.getText()+"', school = '"+this.school_tf.getText()+"' , d_level = '"+this.level_tf.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");
-             Connection.insertrs("update position_employee set p_name = '"+work_position.getSelectedItem()+"', hours = '"+work_hours.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");}
+        if(!bsn_tf.getText().isEmpty() && Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))       
+        {
+            Connection.insertrs("update employee set e_name = '"+this.e_name_tf.getText()+"', e_surname = '"+this.e_surname_tf.getText()+"' , building_name = '"+this.building_box.getSelectedItem()+"' where e_bsn = '"+bsn_tf.getText()+"';");
+            if(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size() < 1)
+            {
+                Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");
+            }
+            if(Connection.returnrs("SELECT course,school,d_level FROM degree WHERE course='"+course_tf.getText()+"'AND school='"+school_tf.getText()+"'AND d_level='"+level_tf.getText()+"';").size() < 1)
+            {
+                Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");
+            }
+            Connection.insertrs("update address_employee set country = '"+this.country_tf.getText()+"', postal_code = '"+this.postal_code_tf.getText()+"' , house_number = '"+this.house_nr_tf.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");
+            Connection.insertrs("update degree_employee set course = '"+this.course_tf.getText()+"', school = '"+this.school_tf.getText()+"' , d_level = '"+this.level_tf.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");
+            Connection.insertrs("update position_employee set p_name = '"+work_position.getSelectedItem()+"', hours = '"+work_hours.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");
+        }
         
 // 
     }//GEN-LAST:event_ModifyBActionPerformed
 
     private void AddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBActionPerformed
         // If statements klopt niet nu kijken we direct of er een address bestaat of niet
-        if(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size() < 1){
-            System.out.println(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size());
-                    Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");
+        if(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size() < 1)
+        {
+            Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");
         }    
         // If statements klopt niet nu kijken we direct of er een degree bestaat of niet
-       if(Connection.returnrs("SELECT course,school,d_level FROM degree WHERE course='"+course_tf.getText()+"'AND school='"+school_tf.getText()+"'AND d_level='"+level_tf.getText()+"';").size() < 1)
-       {
-                    Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");
-       }
-       if(!bsn_tf.getText().isEmpty() && !Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
-            {Connection.insertrs("INSERT INTO employee VALUES ('"+bsn_tf.getText()+"', '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_box.getSelectedItem()+"');"
+        if(Connection.returnrs("SELECT course,school,d_level FROM degree WHERE course='"+course_tf.getText()+"'AND school='"+school_tf.getText()+"'AND d_level='"+level_tf.getText()+"';").size() < 1)
+        {
+            Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");
+        }
+        if(!bsn_tf.getText().isEmpty() && !Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
+        {
+            Connection.insertrs("INSERT INTO employee VALUES ('"+bsn_tf.getText()+"', '"+this.e_name_tf.getText()+"', '"+this.e_surname_tf.getText()+"', '"+this.building_box.getSelectedItem()+"');"
                      +"INSERT INTO address_employee VALUES('"+bsn_tf.getText()+"','"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"');"
                      +"INSERT INTO degree_employee VALUES('" + bsn_tf.getText()+ "','" + course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');"                                        
                      +"INSERT INTO position_employee VALUES('"+bsn_tf.getText()+"','"+work_position.getSelectedItem()+"','"+work_hours.getText()+"');"
-                     );}   
-
-        //Connection.returnrs("Select e_bsn from employee;");
-// hier moet een add to database query komen waar alle variable van employee
-        // adress en degree worden toegevoegd aan database
+                     );
+        }   
         
     }//GEN-LAST:event_AddBActionPerformed
 
@@ -647,9 +645,9 @@ public class DevDatabaseM extends javax.swing.JFrame {
 
     private void assign_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assign_buttonActionPerformed
        if(Connection.returnrs("SELECT e_bsn,p_id FROM position_project WHERE e_bsn='"+assign_employee_project.getSelectedItem()+"' AND p_id='"+assigntoproject.getSelectedItem()+"'").size() < 1)
-       {
-               Connection.insertrs("INSERT INTO position_project VALUES('"+assign_employee_project.getSelectedItem()+"','"+assigntoproject.getSelectedItem()+"','"+assign_position_project.getSelectedItem()+"')");
-                       }    
+        {
+            Connection.insertrs("INSERT INTO position_project VALUES('"+assign_employee_project.getSelectedItem()+"','"+assigntoproject.getSelectedItem()+"','"+assign_position_project.getSelectedItem()+"')");
+        }    
     }//GEN-LAST:event_assign_buttonActionPerformed
 
     private void existing_bsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_existing_bsnActionPerformed
@@ -657,7 +655,8 @@ public class DevDatabaseM extends javax.swing.JFrame {
     }//GEN-LAST:event_existing_bsnActionPerformed
 
     private void ok_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ok_buttonActionPerformed
-        if(!"select bsn".equals(existing_bsn.getSelectedItem().toString())){
+        if(!"select bsn".equals(existing_bsn.getSelectedItem().toString()))
+        {
             String bsn = existing_bsn.getSelectedItem().toString();
             bsn_tf.setText(bsn);
             ArrayList<String> l = Connection.returnrs("select e_name from employee where e_bsn = '" + bsn +"';");
