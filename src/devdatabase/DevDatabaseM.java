@@ -650,7 +650,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
     }//GEN-LAST:event_goto_projectActionPerformed
 
     private void assign_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assign_buttonActionPerformed
-       if(!Connection.returnrs("SELECT e_bsn FROM position_project").contains(bsn_tf.getText()) && !Connection.returnrs("SELECT p_id FROM position_project").contains(assigntoproject.getSelectedItem()))
+       if(Connection.returnrs("SELECT e_bsn,p_id FROM position_project WHERE e_bsn='"+assign_employee_project.getSelectedItem()+"' AND p_id='"+assigntoproject.getSelectedItem()+"'").size() < 1)
        {
                Connection.insertrs("INSERT INTO position_project VALUES('"+assign_employee_project.getSelectedItem()+"','"+assigntoproject.getSelectedItem()+"','"+assign_position_project.getSelectedItem()+"')");
                        }    
@@ -688,8 +688,8 @@ public class DevDatabaseM extends javax.swing.JFrame {
             house_nr_tf.setText(l9.get(0));
             city_tf.setText(l10.get(0));
             street_tf.setText(l11.get(0));
-//            work_position.setSelectedItem(l12.get(0));
-//            work_hours.setText(l13.get(0));
+            work_position.setSelectedItem(l12.get(0));
+            work_hours.setText(l13.get(0));
             System.out.println(Connection.returnrs("select p_name from position_employee where e_bsn = '" + bsn +"';"));
             System.out.println(Connection.returnrs("select hours from position_employee where e_bsn = '" + bsn +"';"));
     }
