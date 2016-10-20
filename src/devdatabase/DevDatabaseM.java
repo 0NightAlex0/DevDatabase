@@ -551,7 +551,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
         if(!bsn_tf.getText().isEmpty() && Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))       
         {
             Connection.insertrs("update employee set e_name = '"+this.e_name_tf.getText()+"', e_surname = '"+this.e_surname_tf.getText()+"' , building_name = '"+this.building_box.getSelectedItem()+"' where e_bsn = '"+bsn_tf.getText()+"';");
-            if(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size() < 1)
+            if(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size() < 1)//Empty
             {
                 Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");
             }
