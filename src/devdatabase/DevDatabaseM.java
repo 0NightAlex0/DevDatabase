@@ -546,22 +546,36 @@ public class DevDatabaseM extends javax.swing.JFrame {
 
     private void ModifyBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyBActionPerformed
         if(!bsn_tf.getText().isEmpty() && Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
-             {Connection.insertrs("update employee set e_name = '"+this.e_name_tf.getText()+"', e_surname = '"+this.e_surname_tf.getText()+"' , building_name = '"+this.building_box.getSelectedItem()+"' where e_bsn = "+bsn_tf.getText()+";");}
+            
+             {System.out.println("test");
+             Connection.insertrs("update employee set e_name = '"+this.e_name_tf.getText()+"', e_surname = '"+this.e_surname_tf.getText()+"' , building_name = '"+this.building_box.getSelectedItem()+"' where e_bsn = '"+bsn_tf.getText()+"';");
+                if(!Connection.returnrs("SELECT country FROM address").contains(country_tf.getText())
+                   && !Connection.returnrs("SELECT postal_code FROM address").contains(postal_code_tf.getText())
+                   && !Connection.returnrs("SELECT house_number FROM address").contains(house_nr_tf.getText()))
+                   {
+                       Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");
+                   }
+               if(!Connection.returnrs("SELECT course FROM degree").contains(course_tf.getText())
+                   && !Connection.returnrs("SELECT school FROM degree").contains(school_tf.getText())
+                   && !Connection.returnrs("SELECT d_level FROM degree").contains(level_tf.getText()))
+                   {
+                       Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");
+                   }
+             Connection.insertrs("update address_employee set country = '"+this.country_tf.getText()+"', postal_code = '"+this.postal_code_tf.getText()+"' , house_number = '"+this.house_nr_tf.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");
+             Connection.insertrs("update degree_employee set course = '"+this.course_tf.getText()+"', school = '"+this.school_tf.getText()+"' , d_level = '"+this.level_tf.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");
+             Connection.insertrs("update position_employee set p_name = '"+work_position.getSelectedItem()+"', hours = '"+work_hours.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");}
         
 // 
     }//GEN-LAST:event_ModifyBActionPerformed
 
     private void AddBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddBActionPerformed
-   
-        if(!Connection.returnrs("SELECT country FROM address").contains(country_tf.getText())
-               && !Connection.returnrs("SELECT postal_code FROM address").contains(postal_code_tf.getText())
-               && !Connection.returnrs("SELECT house_number FROM address").contains(house_nr_tf.getText()))
-        {   
+        // If statements klopt niet nu kijken we direct of er een address bestaat of niet
+        if(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size() < 1){
+            System.out.println(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size());
                     Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");
-        }       
-       if(!Connection.returnrs("SELECT course FROM degree").contains(course_tf.getText())
-               && !Connection.returnrs("SELECT school FROM degree").contains(school_tf.getText())
-               && !Connection.returnrs("SELECT d_level FROM degree").contains(level_tf.getText()))
+        }    
+        // If statements klopt niet nu kijken we direct of er een degree bestaat of niet
+       if(Connection.returnrs("SELECT course,school,d_level FROM degree WHERE course='"+course_tf.getText()+"'AND school='"+school_tf.getText()+"'AND d_level='"+level_tf.getText()+"';").size() < 1)
        {
                     Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");
        }
@@ -664,6 +678,7 @@ public class DevDatabaseM extends javax.swing.JFrame {
             ArrayList<String> l12 = Connection.returnrs("select p_name from position_employee where e_bsn = '" + bsn +"';");
             ArrayList<String> l13 = Connection.returnrs("select hours from position_employee where e_bsn = '" + bsn +"';");
             e_surname_tf.setText(l2.get(0));
+            e_name_tf.setText(l.get(0));
             building_box.setSelectedItem(l3.get(0));
             course_tf.setText(l4.get(0));
             school_tf.setText(l5.get(0));
@@ -673,8 +688,10 @@ public class DevDatabaseM extends javax.swing.JFrame {
             house_nr_tf.setText(l9.get(0));
             city_tf.setText(l10.get(0));
             street_tf.setText(l11.get(0));
-            work_position.setSelectedItem(l12.get(0));
-            work_hours.setText(l13.get(0));
+//            work_position.setSelectedItem(l12.get(0));
+//            work_hours.setText(l13.get(0));
+            System.out.println(Connection.returnrs("select p_name from position_employee where e_bsn = '" + bsn +"';"));
+            System.out.println(Connection.returnrs("select hours from position_employee where e_bsn = '" + bsn +"';"));
     }
     }//GEN-LAST:event_ok_buttonActionPerformed
 
