@@ -549,16 +549,12 @@ public class DevDatabaseM extends javax.swing.JFrame {
             
              {System.out.println("test");
              Connection.insertrs("update employee set e_name = '"+this.e_name_tf.getText()+"', e_surname = '"+this.e_surname_tf.getText()+"' , building_name = '"+this.building_box.getSelectedItem()+"' where e_bsn = '"+bsn_tf.getText()+"';");
-                if(!Connection.returnrs("SELECT country FROM address").contains(country_tf.getText())
-                   && !Connection.returnrs("SELECT postal_code FROM address").contains(postal_code_tf.getText())
-                   && !Connection.returnrs("SELECT house_number FROM address").contains(house_nr_tf.getText()))
-                   {
+                if(Connection.returnrs("SELECT country,postal_code,house_number FROM address WHERE country='"+country_tf.getText()+"'AND postal_code='"+postal_code_tf.getText()+"'AND house_number='"+house_nr_tf.getText()+"';").size() < 1)
+           {
                        Connection.insertrs("INSERT INTO address VALUES ('"+country_tf.getText()+"','"+postal_code_tf.getText()+"','"+house_nr_tf.getText()+"','"+street_tf.getText()+"','"+city_tf.getText()+"');");
                    }
-               if(!Connection.returnrs("SELECT course FROM degree").contains(course_tf.getText())
-                   && !Connection.returnrs("SELECT school FROM degree").contains(school_tf.getText())
-                   && !Connection.returnrs("SELECT d_level FROM degree").contains(level_tf.getText()))
-                   {
+               if(Connection.returnrs("SELECT course,school,d_level FROM degree WHERE course='"+course_tf.getText()+"'AND school='"+school_tf.getText()+"'AND d_level='"+level_tf.getText()+"';").size() < 1)
+           {
                        Connection.insertrs("INSERT INTO degree VALUES ('"+course_tf.getText()+"','"+school_tf.getText()+"','"+level_tf.getText()+"');");
                    }
              Connection.insertrs("update address_employee set country = '"+this.country_tf.getText()+"', postal_code = '"+this.postal_code_tf.getText()+"' , house_number = '"+this.house_nr_tf.getText()+"' where e_bsn = '"+bsn_tf.getText()+"';");
