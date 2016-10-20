@@ -52,7 +52,7 @@ public class PrjForm extends javax.swing.JFrame {
         prj_id = new javax.swing.JTextField();
         prj_budget = new javax.swing.JTextField();
         prj_hours = new javax.swing.JTextField();
-        HQName = new javax.swing.JComboBox<>();
+        HQName = new javax.swing.JComboBox<String>();
         goto_employee = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         project_budget = new javax.swing.JComboBox();
@@ -105,7 +105,7 @@ public class PrjForm extends javax.swing.JFrame {
             }
         });
 
-        HQName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select headquarters" }));
+        HQName.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select headquarters" }));
         HQName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HQNameActionPerformed(evt);
@@ -166,7 +166,7 @@ public class PrjForm extends javax.swing.JFrame {
                                 .addGap(19, 19, 19))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(18, 18, 18)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(project_budget, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(building_rent, javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,6 +225,7 @@ public class PrjForm extends javax.swing.JFrame {
         if(!prj_id.getText().isEmpty() && !Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
             
             Connection.insertrs("INSERT INTO project VALUES('"+ prj_id.getText() +"'," + prj_budget.getText() + ","+ prj_hours.getText() + ",'"+ HQName.getSelectedItem()+"');");
+            project_budget.addItem(prj_id.getText());
         }
     }//GEN-LAST:event_addBActionPerformed
 
@@ -243,6 +244,7 @@ public class PrjForm extends javax.swing.JFrame {
     private void deleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBActionPerformed
         if(!prj_id.getText().isEmpty() && Connection.returnrs("SELECT p_id FROM project").contains(prj_id.getText())){
             Connection.insertrs("DELETE FROM project WHERE p_id = '"+ prj_id.getText()+"';"); 
+            project_budget.removeItem(prj_id.getText());
     // this removes everything that has to do with the id inlcuding the location
         }
     }//GEN-LAST:event_deleteBActionPerformed

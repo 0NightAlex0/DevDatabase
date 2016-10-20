@@ -689,8 +689,6 @@ public class DevDatabaseM extends javax.swing.JFrame {
             street_tf.setText(l11.get(0));
             work_position.setSelectedItem(l12.get(0));
             work_hours.setText(l13.get(0));
-            System.out.println(Connection.returnrs("select p_name from position_employee where e_bsn = '" + bsn +"';"));
-            System.out.println(Connection.returnrs("select hours from position_employee where e_bsn = '" + bsn +"';"));
     }
     }//GEN-LAST:event_ok_buttonActionPerformed
 
