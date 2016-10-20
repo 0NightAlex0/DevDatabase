@@ -540,7 +540,10 @@ public class DevDatabaseM extends javax.swing.JFrame {
 
     private void DeleteBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBActionPerformed
          if(!bsn_tf.getText().isEmpty() && Connection.returnrs("SELECT e_bsn FROM employee").contains(bsn_tf.getText()))
-             {Connection.insertrs("DELETE FROM employee WHERE e_bsn = '"+this.bsn_tf.getText()+"';");}
+             {Connection.insertrs("DELETE FROM employee WHERE e_bsn = '"+this.bsn_tf.getText()+"';");
+             existing_bsn.removeItem(bsn_tf.getText());
+             assign_employee_project.removeItem(bsn_tf.getText());
+             }
        
     }//GEN-LAST:event_DeleteBActionPerformed
 
@@ -583,7 +586,8 @@ public class DevDatabaseM extends javax.swing.JFrame {
                      +"INSERT INTO position_employee VALUES('"+bsn_tf.getText()+"','"+work_position.getSelectedItem()+"','"+work_hours.getText()+"');"
                      );
         }   
-        
+        existing_bsn.addItem(bsn_tf.getText());
+        assign_employee_project.addItem(bsn_tf.getText());
     }//GEN-LAST:event_AddBActionPerformed
 
     private void bsn_tfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bsn_tfActionPerformed
