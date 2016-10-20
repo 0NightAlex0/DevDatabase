@@ -339,3 +339,26 @@ Storage files: (filename : modification date - size)
 2016-10-19 15:18:20.164+0000 INFO  [o.n.k.i.DiagnosticsManager] --- SERVER STARTED START ---
 2016-10-19 15:18:23.641+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 237ms.
 2016-10-19 15:18:23.876+0000 INFO  [o.n.k.i.DiagnosticsManager] --- SERVER STARTED END ---
+2016-10-19 15:23:11.409+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [30]:  Starting check pointing...
+2016-10-19 15:23:11.409+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [30]:  Starting store flush...
+2016-10-19 15:23:11.528+0000 INFO  [o.n.k.i.s.c.CountsTracker] About to rotate counts store at transaction 30 to [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alexander_Ng.graphdb\neostore.counts.db.b], from [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alexander_Ng.graphdb\neostore.counts.db.a].
+2016-10-19 15:23:11.533+0000 INFO  [o.n.k.i.s.c.CountsTracker] Successfully rotated counts store at transaction 30 to [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alexander_Ng.graphdb\neostore.counts.db.b], from [D:\githubfiles\DevDatabase\database_Ruben_Everwijn_Alexander_Ng.graphdb\neostore.counts.db.a].
+2016-10-19 15:23:11.979+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [30]:  Store flush completed
+2016-10-19 15:23:11.979+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [30]:  Starting appending check point entry into the tx log...
+2016-10-19 15:23:12.109+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [30]:  Appending check point entry into the tx log completed
+2016-10-19 15:23:12.110+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by scheduler for time threshold [30]:  Check pointing completed
+2016-10-19 15:23:12.110+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Starting log pruning.
+2016-10-19 15:23:12.110+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Log pruning complete.
+2016-10-19 16:18:24.280+0000 WARN  [o.n.k.i.c.MonitorGc] GC Monitor: Application threads blocked for 615ms.
+2016-10-19 16:53:49.865+0000 INFO  [o.n.k.i.f.CommunityFacadeFactory] Shutdown started
+2016-10-19 16:53:49.867+0000 INFO  [o.n.k.i.f.CommunityFacadeFactory] Database is now unavailable
+2016-10-19 16:53:49.899+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [30]:  Starting check pointing...
+2016-10-19 16:53:49.899+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [30]:  Starting store flush...
+2016-10-19 16:53:49.920+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [30]:  Store flush completed
+2016-10-19 16:53:49.920+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [30]:  Starting appending check point entry into the tx log...
+2016-10-19 16:53:49.956+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [30]:  Appending check point entry into the tx log completed
+2016-10-19 16:53:49.956+0000 INFO  [o.n.k.i.t.l.c.CheckPointerImpl] Check Pointing triggered by database shutdown [30]:  Check pointing completed
+2016-10-19 16:53:49.956+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Starting log pruning.
+2016-10-19 16:53:49.957+0000 INFO  [o.n.k.i.t.l.p.LogPruningImpl] Log Rotation [0]:  Log pruning complete.
+2016-10-19 16:53:52.319+0000 INFO  [o.n.k.i.DiagnosticsManager] --- STOPPING diagnostics START ---
+2016-10-19 16:53:52.319+0000 INFO  [o.n.k.i.DiagnosticsManager] --- STOPPING diagnostics END ---
