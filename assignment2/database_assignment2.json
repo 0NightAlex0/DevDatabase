@@ -35,5 +35,6 @@
 		{"p_id":"P22","p_budget":50000,"p_total_hours": 400,"building_name":"H-Gebouw"},
 		{"p_id":"P23","p_budget":70000,"p_total_hours": 500,"building_name":"B-Gebouw"}
 		]
-}// Deze database werkt niet met primary keys en foreignkeys 
+}
+// Deze database werkt niet met primary keys en foreignkeys 
 //  dus alle info over een employee plaats je in employee
